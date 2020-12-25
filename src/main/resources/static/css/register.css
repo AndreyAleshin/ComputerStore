@@ -1,0 +1,14 @@
+.container {
+    width: 800px;
+}
+
+.validation-message {
+    font-style: italic;
+    font-size: 16px;
+    color: #FF1C20;
+}
+
+.form-signin-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
