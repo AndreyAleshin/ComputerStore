@@ -80,7 +80,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/img/**");
     }
 
-    // todo do auto-login after successful registration
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // csrf - Cross Site Request Forgery

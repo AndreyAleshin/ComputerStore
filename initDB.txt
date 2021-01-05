@@ -1,0 +1,13 @@
+You should create a new connection with H2 database in IntelliJ IDEA and insert this data to the Query
+Console. After that you will have 2 users in your DB (Admin and User) each with its own rights. Password
+for 'admin' and 'user' is 123. Now you can login with those credentials and see the functionality of the website.
+
+-- ADMIN --
+INSERT INTO users (id, email, username, password, first_name, last_name, role, status)
+VALUES (1, 'admin@gmail.com', 'admin', '$2y$12$MU.0LpYEQrdrA0m3V2P90O6c3gpyZBAeadZxiUgMsOwVfiWw/8ndC', 'Admin','Adminin',
+        'ADMIN', 'ACTIVE');
+
+-- USER --
+INSERT INTO users (id, email, username, password, first_name, last_name, role, status)
+VALUES (2, 'user@gmail.com', 'user', '$2y$12$Lra/NhPO772U1yozfbZ/XuC79Euj27T5p9u8TKm.PzRhfnpJXAZ8C', 'User', 'Userov',
+        'USER', 'ACTIVE');
