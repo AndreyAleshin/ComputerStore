@@ -7,6 +7,7 @@ This is a computer store e-commerce application (not yet finished) built with th
 5. Lombok
 6. Thymeleaf
 7. Bootstrap
+8. Maven
 
 To run it from IntelliJ IDEA start the app and type https://localhost:8080/ in your browser address bar.
 
