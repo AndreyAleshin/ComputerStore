@@ -10,6 +10,7 @@ This is a computer store e-commerce application (not yet finished) built with th
 8. Maven
 
 To run it from IntelliJ IDEA start the app and type https://localhost:8080/ in your browser address bar.
+Also check the initDB.txt file for more instructions.
 
 ## What's implemented?
 + Home page (that doesn't look like a computer store website page yet 😄)
