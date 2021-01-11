@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 //@Configuration // используется для классов, которые определяют bean-компоненты
 @EnableWebSecurity // можно убрать @Configuration, т.к. эта аннотация её уже включает
-@EnableGlobalMethodSecurity(prePostEnabled = true) // ??????
+@EnableGlobalMethodSecurity(prePostEnabled = true) // ???
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     // todo what it does?
@@ -36,43 +36,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.userDetailsService = userDetailsService;
     }
 
-    // BCryptPasswordEncoder (can change password encryption implementation)
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    ServletRegistrationBean h2ServletRegistration() {
-        var registrationBean = new ServletRegistrationBean(new WebServlet());
-        registrationBean.addUrlMappings("/h2/*");
-        return registrationBean;
-    }
-
-    @Bean
-    public AuthenticationManager customAuthenticationManager() throws Exception {
-        return authenticationManager();
-    }
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
-
-    //    @Bean
-//    protected DaoAuthenticationProvider daoAuthenticationProvider() {
-//        var provider = new DaoAuthenticationProvider();
-//        provider.setPasswordEncoder(passwordEncoder());
-//        provider.setUserDetailsService(userDetailsService);
-//        return provider;
-//    }
-//
-//    @Override
-//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider(daoAuthenticationProvider());
-//    }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -109,5 +78,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.headers().frameOptions().disable(); // for H2 database (should use h2-console ONLY in development)
     }
+
+    // BCryptPasswordEncoder (can change password encryption implementation)
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    ServletRegistrationBean h2ServletRegistration() {
+        var registrationBean = new ServletRegistrationBean(new WebServlet());
+        registrationBean.addUrlMappings("/h2/*");
+        return registrationBean;
+    }
+
+    @Bean
+    public AuthenticationManager customAuthenticationManager() throws Exception {
+        return authenticationManager();
+    }
+
+    //    @Bean
+//    protected DaoAuthenticationProvider daoAuthenticationProvider() {
+//        var provider = new DaoAuthenticationProvider();
+//        provider.setPasswordEncoder(passwordEncoder());
+//        provider.setUserDetailsService(userDetailsService);
+//        return provider;
+//    }
+//
+//    @Override
+//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.authenticationProvider(daoAuthenticationProvider());
+//    }
 
 }

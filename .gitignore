@@ -13,9 +13,6 @@ target/
 .sts4-cache
 
 ### Maven ###
-mvnw
-mvnw.cmd
-/.mvn/
 .mvn/wrapper/maven-wrapper.jar
 
 ### IntelliJ IDEA ###

@@ -11,9 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.FileOutputStream;
 import java.util.*;
-import java.util.stream.Collectors;
 
 // Это то, как мы получаем пользователей из БД
 // Указывает, что класс является сервисом для реализации бизнес логики
@@ -27,6 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    // Метод вызывается при отправке логин формы
     @Transactional(readOnly = true) // todo what it does?
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -39,6 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
 
+        // Возвращаем объект внутреннего Spring User
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),

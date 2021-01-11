@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 // todo /user/** and /admin/**
 /*
+Контроллеры – это классы предназначенные для взаимодействия с клиентом (например web-страница)
 Специальный тип класса, применяемый в MVC приложениях.
 Похож на обычный сервлет HttpServlet, работающий с объектами HttpServletRequest и HttpServletResponse,
 но с расширенными возможностями от Spring Framework.
