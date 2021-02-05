@@ -40,7 +40,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(value = EnumType.STRING) // !!!
     @Column(name = "role")
     private Role role;
 
@@ -52,6 +52,6 @@ public class User {
 //    @JoinTable(name = "users_roles",
 //            joinColumns = @JoinColumn(name = "user_id"),
 //            inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Set<Role> roles;
+//    private Collection<Role> roles; // or Set<Role>
 
 }

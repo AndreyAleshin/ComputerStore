@@ -13,17 +13,17 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 //@Configuration // используется для классов, которые определяют bean-компоненты
 @EnableWebSecurity // можно убрать @Configuration, т.к. эта аннотация её уже включает
-@EnableGlobalMethodSecurity(prePostEnabled = true) // ???
+@EnableGlobalMethodSecurity(prePostEnabled = true) // защита отдельных методов (@Secured будет работать на методах)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // todo what it does?
-//    @Qualifier("userDetailsServiceImpl")
-    private final UserDetailsServiceImpl userDetailsService;
+    @Qualifier("userDetailsServiceImpl") // todo what it does? нет смысла (пока), т.к. интерфейс реализует только 1 класс
+    private final UserDetailsService userDetailsService;
 
     /*
     @Autowired позволяет автоматически установить значение поля.
@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        // todo разобраться, что конкретно делает
+        // todo understand what it does
         web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/img/**");
     }
 

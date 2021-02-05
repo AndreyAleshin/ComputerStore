@@ -26,7 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     // Метод вызывается при отправке логин формы
-    @Transactional(readOnly = true) // todo what it does?
+    @Transactional(readOnly = true) // всё, что находится в этом методе необходимо выполнить внутри одной транзакции
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository
