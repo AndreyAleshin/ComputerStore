@@ -9,11 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Optional;
 
-@Controller
+@Controller // todo do a @RestController ???
 @RequestMapping("/user")
 public class UserController {
 
@@ -29,7 +28,7 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Optional<User> user = userService.findByUsername(auth.getName());
         model.addAttribute("user", user);
-        return "user/info";
+        return "/user/info";
     }
 
 }

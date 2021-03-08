@@ -2,7 +2,6 @@ package com.github.andreyaleshin.computer_store.validator;
 
 import com.github.andreyaleshin.computer_store.entity.User;
 import com.github.andreyaleshin.computer_store.service.UserService;
-import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

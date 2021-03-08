@@ -59,7 +59,7 @@
 <!--            <version>28.1-jre</version>-->
 <!--        </dependency>-->
 
-        <!-- Optional, it brings useful tags to display spring security stuff -->
+        <!-- It brings useful tags to display spring security stuff -->
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>4.5.3</version>
+            <version>4.6.0</version>
         </dependency>
 
         <!-- Hot swapping, disable cache for template, enable Live Reload -->

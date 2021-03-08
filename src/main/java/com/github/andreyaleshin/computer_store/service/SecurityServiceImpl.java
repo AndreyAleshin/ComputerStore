@@ -1,7 +1,5 @@
-package com.github.andreyaleshin.computer_store.service.impl;
+package com.github.andreyaleshin.computer_store.service;
 
-import com.github.andreyaleshin.computer_store.service.SecurityService;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +36,7 @@ public class SecurityServiceImpl implements SecurityService {
             return ((UserDetails) userDetails).getUsername();
         }
 
-        return null;
+        return null; // todo change null to something else
     }
 
     @Override

@@ -24,7 +24,7 @@ public class AdminController {
     }
 
     @GetMapping("/adminPage")
-    public String getAdminHome(Model model) {
+    public String showAdminPage(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Optional<User> user = userService.findByUsername(auth.getName());
         model.addAttribute(
@@ -39,7 +39,7 @@ public class AdminController {
                 "adminMessage",
                 "Content Available Only for Users with ROLE_ADMIN"
         );
-        return "admin/adminPage";
+        return "/admin/adminPage";
     }
 
 }

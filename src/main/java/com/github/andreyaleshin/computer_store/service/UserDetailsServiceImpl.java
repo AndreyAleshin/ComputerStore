@@ -1,4 +1,4 @@
-package com.github.andreyaleshin.computer_store.service.impl;
+package com.github.andreyaleshin.computer_store.service;
 
 import com.github.andreyaleshin.computer_store.entity.User;
 import com.github.andreyaleshin.computer_store.repository.UserRepository;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 // Это то, как мы получаем пользователей из БД
 // Указывает, что класс является сервисом для реализации бизнес логики
@@ -26,8 +27,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     // Метод вызывается при отправке логин формы
-    @Transactional(readOnly = true) // всё, что находится в этом методе необходимо выполнить внутри одной транзакции
     @Override
+    @Transactional(readOnly = true) // Всё, что находится в этом методе необходимо выполнить внутри одной транзакции
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository
                 .findByUsername(username)
@@ -45,9 +46,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 grantedAuthorities
         );
     }
-
-//    public void deleteUser(Long userId) {
-//        findById(userId).ifPresent(this::delete);
-//    }
 
 }

@@ -1,6 +1,6 @@
 package com.github.andreyaleshin.computer_store.config;
 
-import com.github.andreyaleshin.computer_store.service.impl.UserDetailsServiceImpl;
+import com.github.andreyaleshin.computer_store.service.UserDetailsServiceImpl;
 import org.h2.server.web.WebServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,7 +22,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true) // защита отдельных методов (@Secured будет работать на методах)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Qualifier("userDetailsServiceImpl") // todo what it does? нет смысла (пока), т.к. интерфейс реализует только 1 класс
+    @Qualifier("userDetailsServiceImpl")
+    // todo what it does? нет смысла (пока), т.к. интерфейс реализует только 1 класс
     private final UserDetailsService userDetailsService;
 
     /*

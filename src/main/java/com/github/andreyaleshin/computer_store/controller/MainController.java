@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.security.Principal;
+
 // todo /user/** and /admin/**
 /*
 Контроллеры – это классы предназначенные для взаимодействия с клиентом (например web-страница)
@@ -18,33 +20,32 @@ public class MainController {
     public String home(Model model) {
         model.addAttribute("title", "Computer Store | Home");
         model.addAttribute("message", "This is home page!");
-        return "home";
+        return "/home";
     }
 
     // We don't define /login POST controller, it is provided by Spring Security
-
-    // todo если уже залогинен перенапрлять на какую-нибудь страницу
     @GetMapping("/login")
-    public String login(Model model, String error, String logout) {
+    public String login(Principal principal, Model model, String error) {
         model.addAttribute("title", "Login page");
 
+        if (principal != null) {
+            return "redirect:/home"; // todo если уже залогинен перенапрлять на какую-нибудь страницу
+        }
         if (error != null) {
             model.addAttribute("errorMessage", "Invalid username and/or password");
         }
-        if (logout != null) {
-            model.addAttribute("logoutMessage", "You have been logged out successfully");
-        }
 
-        return "login";
+        return "/login";
     }
 
     @GetMapping("/about")
     public String about() {
-        return "about";
+        return "/about";
     }
 
     @GetMapping("/error/403")
     public String accessDenied() {
-        return "error/403";
+        return "/error/403";
     }
+
 }

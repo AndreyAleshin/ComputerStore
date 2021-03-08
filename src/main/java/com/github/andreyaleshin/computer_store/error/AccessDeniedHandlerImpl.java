@@ -23,7 +23,6 @@ public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
     public void handle(HttpServletRequest request,
                        HttpServletResponse response,
                        AccessDeniedException e) throws IOException {
-
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         if (auth != null) {
@@ -35,7 +34,6 @@ public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
         }
 
         response.sendRedirect(request.getContextPath() + "/error/403");
-
     }
 
 }

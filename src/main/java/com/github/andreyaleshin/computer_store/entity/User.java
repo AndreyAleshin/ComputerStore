@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @Builder
@@ -40,7 +42,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Enumerated(value = EnumType.STRING) // !!!
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "role")
     private Role role;
 
@@ -48,10 +50,6 @@ public class User {
     @Column(name = "status")
     private Status status;
 
-//    @ManyToMany
-//    @JoinTable(name = "users_roles",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Collection<Role> roles; // or Set<Role>
+    // todo add dateOfRegistration field of type LocalDate
 
 }

@@ -37,7 +37,7 @@ public class RegistrationController {
     public String register(Model model) {
         User user = new User();
         model.addAttribute("userForm", user);
-        return "register";
+        return "/register";
     }
 
     @PostMapping
@@ -46,7 +46,7 @@ public class RegistrationController {
 
         String notHashedPassword = userForm.getPassword();
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "/register";
         }
 
         userService.saveUser(userForm);
