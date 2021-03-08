@@ -40,6 +40,7 @@ public class RegistrationController {
         return "/register";
     }
 
+    // todo change user argument to UserDTO
     @PostMapping
     public String registerUser(@Valid @ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
