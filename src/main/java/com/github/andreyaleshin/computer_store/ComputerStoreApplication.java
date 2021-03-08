@@ -19,7 +19,6 @@ public class ComputerStoreApplication {
 // todo Docker разобраться
 // todo add favicon
 // todo https://www.jhipster.tech/
-// todo in project structure "Module ComputerStore: invalid item 'jquery' in the dependencies list"
 
 // todo change YAML, SQL color scheme
 // todo change JavaScript color scheme
@@ -31,7 +30,4 @@ public class ComputerStoreApplication {
 // todo Serializable над Entity классами
 // todo видео Geekbrains Spring AOP.mp4 поменять Role (ManyToMany), UserService, UserDetailsServiceImpl (что-то сделать с этим)
 // todo UserService(interface) extends UserDetailsService -> UserServiceImpl implements UserService
-// todo add RoleRepository
 // todo у админа сделать ROLE_ADMIN и ROLE_USER
-
-//todo попробовать сделать develop branch (от master)
