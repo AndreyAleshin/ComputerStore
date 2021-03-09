@@ -11,8 +11,12 @@ import org.springframework.validation.Validator;
 @Component
 public class UserValidator implements Validator {
 
-//    private final EmailValidator emailValidator;
     private final UserService userService;
+
+    public static final int MINIMUM_USERNAME_LENGTH = 3;
+    public static final int MINIMUM_PASSWORD_LENGTH = 3;
+    public static final int MAXIMUM_USERNAME_LENGTH = 20;
+    public static final int MAXIMUM_PASSWORD_LENGTH = 32;
 
     @Autowired
     public UserValidator(UserService userService) {
@@ -25,50 +29,36 @@ public class UserValidator implements Validator {
     }
 
     @Override
-    public void validate(Object o, Errors errors) {
-        User userForm = (User) o;
+    public void validate(Object target, Errors errors) {
+        User user = (User) target;
 
-        String messageEmpty = "This field is required";
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "notEmpty.userForm.email");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "notEmpty.userForm.username");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "notEmpty.userForm.password");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "notEmpty.userForm.passwordConfirm");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "notEmpty.userForm.firstName");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "notEmpty.userForm.lastName");
 
-        // todo email and name regex validation
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", null, messageEmpty);
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", null, messageEmpty);
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", null, messageEmpty);
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", null, messageEmpty);
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", null, messageEmpty);
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", null, messageEmpty);
-
-        if (userForm.getUsername().length() < 3 || userForm.getUsername().length() > 20) {
-            errors.rejectValue(
-                    "username",
-                    null,
-                    "The username must contain from 3 to 20 characters"
-            );
+        if (user.getUsername().length() < MINIMUM_USERNAME_LENGTH ||
+                user.getUsername().length() > MAXIMUM_USERNAME_LENGTH) {
+            errors.rejectValue("username", "size.userForm.username");
         }
 
-        // todo не должен пропускать User, если в БД уже есть ник userForm
-        if (userService.findByUsername(userForm.getUsername()).isPresent()) {
-            errors.rejectValue(
-                    "username",
-                    null,
-                    "This username has been already taken"
-            );
+        if (userService.findByUsername(user.getUsername()).isPresent()) {
+            errors.rejectValue("username", "duplicate.userForm.username");
         }
 
-        if (userForm.getPassword().length() < 3 || userForm.getPassword().length() > 32) {
-            errors.rejectValue(
-                    "password",
-                    null,
-                    "The password must be at least 3 and not greater then 32 characters"
-            );
+        if (userService.findByEmail(user.getEmail()).isPresent()) {
+            errors.rejectValue("email", "duplicate.userForm.email");
         }
 
-        if (!userForm.getPasswordConfirm().equals(userForm.getPassword())) {
-            errors.rejectValue(
-                    "passwordConfirm",
-                    null,
-                    "The passwords don't match"
-            );
+        if (user.getPassword().length() < MINIMUM_PASSWORD_LENGTH ||
+                user.getPassword().length() > MAXIMUM_PASSWORD_LENGTH) {
+            errors.rejectValue("password", "size.userForm.password");
+        }
+
+        if (!user.getPasswordConfirm().equals(user.getPassword())) {
+            errors.rejectValue("passwordConfirm", "match.userForm.passwordConfirm");
         }
 
     }

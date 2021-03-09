@@ -34,7 +34,7 @@ public class RegistrationController {
 
 
     @GetMapping
-    public String register(Model model) {
+    public String showRegistrationPage(Model model) {
         User user = new User();
         model.addAttribute("userForm", user);
         return "/register";
@@ -42,7 +42,7 @@ public class RegistrationController {
 
     // todo change user argument to UserDTO
     @PostMapping
-    public String registerUser(@Valid @ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+    public String registerUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
 
         String notHashedPassword = userForm.getPassword();
@@ -50,10 +50,10 @@ public class RegistrationController {
             return "/register";
         }
 
-        userService.saveUser(userForm);
+        userService.save(userForm);
         securityService.autoLogin(userForm.getUsername(), notHashedPassword);
 
-        return "redirect:/";
+        return "redirect:/home";
     }
 
 }

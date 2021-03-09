@@ -16,14 +16,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 //@Configuration // используется для классов, которые определяют bean-компоненты
 @EnableWebSecurity // можно убрать @Configuration, т.к. эта аннотация её уже включает
 @EnableGlobalMethodSecurity(prePostEnabled = true) // защита отдельных методов (@Secured будет работать на методах)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Qualifier("userDetailsServiceImpl")
     // todo what it does? нет смысла (пока), т.к. интерфейс реализует только 1 класс
+    @Qualifier("userDetailsServiceImpl")
     private final UserDetailsService userDetailsService;
 
     /*
@@ -46,8 +47,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        // todo understand what it does
-        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/img/**");
+        web.ignoring().antMatchers(
+                "/resources/**",
+                "/static/**",
+                "/css/**",
+                "/img/**",
+                "/js/**",
+                "/error/**",
+                "/h2/**"
+        );
     }
 
     @Override
@@ -56,24 +64,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/", "/home", "/register", "/about").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/user/**").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/", "/home", "/login", "/register", "/about", "/h2/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/", true)
-                .failureUrl("/login?error=true")
-                .usernameParameter("username")
-                .passwordParameter("password")
+                .permitAll()
+//                .defaultSuccessUrl("/", true)
+//                .failureUrl("/login?error=true")
+//                .usernameParameter("username")
+//                .passwordParameter("password")
                 .and()
                 .logout()
-//                .permitAll()
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
-//                .invalidateHttpSession(true)
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .permitAll()
 //                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/login")
+//                .logoutSuccessUrl("/login")
                 .and()
                 .exceptionHandling().accessDeniedPage("/error/403");
 
