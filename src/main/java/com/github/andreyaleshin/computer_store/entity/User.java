@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 @Data
 @Builder
@@ -20,6 +21,7 @@ public class User {
     @Column(name = "id")
     private Long id;
 
+    @Valid
     @Column(name = "email")
     private String email;
 
