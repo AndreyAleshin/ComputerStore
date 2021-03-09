@@ -2,6 +2,7 @@ package com.github.andreyaleshin.computer_store.service;
 
 import com.github.andreyaleshin.computer_store.entity.User;
 import com.github.andreyaleshin.computer_store.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,10 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 // Это то, как мы получаем пользователей из БД
 // Указывает, что класс является сервисом для реализации бизнес логики
+@Slf4j
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -38,6 +39,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
+
+        log.debug(String.format("User with name : %s and password: %s was created.",
+                user.getUsername(), user.getPassword()));
 
         // Возвращаем объект внутреннего Spring User
         return new org.springframework.security.core.userdetails.User(

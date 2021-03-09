@@ -51,7 +51,7 @@ public class UserValidator implements Validator {
             errors.rejectValue(
                     "username",
                     null,
-                    "This username is already taken"
+                    "This username has been already taken"
             );
         }
 

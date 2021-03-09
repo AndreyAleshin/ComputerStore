@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
 
-@Controller // todo do a @RestController ???
+@Controller
 @RequestMapping("/user")
 public class UserController {
 
@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/info")
-    public String userInfo(Model model) {
+    public String showUserInfo(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Optional<User> user = userService.findByUsername(auth.getName());
         model.addAttribute("user", user);

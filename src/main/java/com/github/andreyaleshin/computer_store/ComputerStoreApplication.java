@@ -29,3 +29,4 @@ public class ComputerStoreApplication {
 // 13) UserService(interface) extends UserDetailsService -> UserServiceImpl implements UserService
 // 14) у админа сделать ROLE_ADMIN и ROLE_USER
 // 15) check all SonarLint warnings
+// 16) <div th:replace="fragments/footer :: footer"></div> сделать так и с bootstrap link и скриптами

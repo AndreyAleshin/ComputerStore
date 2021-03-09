@@ -4,11 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
 
 @Data
 @Builder
@@ -26,7 +23,6 @@ public class User {
     @Column(name = "email")
     private String email;
 
-//    @ColumnDefault("2") // todo что делает?
     @Column(name = "username")
     private String username;
 
