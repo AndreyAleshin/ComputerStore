@@ -1,9 +1,10 @@
-package com.github.andreyaleshin.computer_store.service;
+package com.github.andreyaleshin.computer_store.service.impl;
 
 import com.github.andreyaleshin.computer_store.entity.Role;
 import com.github.andreyaleshin.computer_store.entity.Status;
 import com.github.andreyaleshin.computer_store.entity.User;
 import com.github.andreyaleshin.computer_store.repository.UserRepository;
+import com.github.andreyaleshin.computer_store.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findById(long id) {
+    public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
 

@@ -1,5 +1,6 @@
-package com.github.andreyaleshin.computer_store.service;
+package com.github.andreyaleshin.computer_store.service.impl;
 
+import com.github.andreyaleshin.computer_store.service.SecurityService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

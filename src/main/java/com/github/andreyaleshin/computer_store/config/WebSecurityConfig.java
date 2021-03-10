@@ -1,6 +1,6 @@
 package com.github.andreyaleshin.computer_store.config;
 
-import com.github.andreyaleshin.computer_store.service.UserDetailsServiceImpl;
+import com.github.andreyaleshin.computer_store.service.impl.UserDetailsServiceImpl;
 import org.h2.server.web.WebServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

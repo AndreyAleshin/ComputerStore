@@ -1,4 +1,4 @@
-package com.github.andreyaleshin.computer_store.service;
+package com.github.andreyaleshin.computer_store.service.impl;
 
 import com.github.andreyaleshin.computer_store.entity.User;
 import com.github.andreyaleshin.computer_store.repository.UserRepository;
