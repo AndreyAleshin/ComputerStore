@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users, products;
 
 CREATE TABLE users
 (
@@ -11,3 +11,13 @@ CREATE TABLE users
     role       VARCHAR(20)        NOT NULL,
     status     VARCHAR(20)        NOT NULL
 );
+
+CREATE TABLE products
+(
+    id          INT PRIMARY KEY,
+    name        VARCHAR(50) NOT NULL,
+    description VARCHAR(50) NOT NULL,
+    imageUrl    VARCHAR(50) NOT NULL,   --!!!
+    price       money       NOT NULL    --!!!
+);
+

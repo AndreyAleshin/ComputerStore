@@ -17,7 +17,7 @@ import java.security.Principal;
 public class MainController {
 
     @GetMapping({"/", "/home"})
-    public String home(Model model) {
+    public String showHome(Model model) {
         model.addAttribute("title", "Computer Store | Home");
         model.addAttribute("message", "This is home page!");
         return "/home";
@@ -39,12 +39,12 @@ public class MainController {
     }
 
     @GetMapping("/about")
-    public String about() {
+    public String showAbout() {
         return "/about";
     }
 
     @GetMapping("/error/403")
-    public String accessDenied() {
+    public String showAccessDenied() {
         return "/error/403";
     }
 
