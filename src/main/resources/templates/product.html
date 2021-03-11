@@ -1,23 +1,64 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns:sec="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
       lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
 
     <title>Products</title>
 </head>
 
 <body>
-<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="fragments/header :: header"></div>
 
+<div class="container">
+    <div class="row">
+        <button sec:authorize="hasRole('ROLE_ADMIN')" class="btn">
+            <a th:href="@{/product/new}"><i class="fas fa-plus fa-2x"></i></a>
+        </button>
 
+        <div class="col card-deck ml-5 my-3" th:if="${!products.isEmpty()}">
+            <div class="card" th:each="product : ${products}">
+                <div sec:authorize="hasRole('ROLE_ADMIN')" class="admin">
+                    <button class="btn">
+                        <a th:href="@{'/product/delete/' + ${product.getId()}}"><i class="fas fa-times"></i></a>
+                    </button>
+                    <button class="btn">
+                        <a th:href="@{'/product/edit/' + ${product.getId()}}"><i class="fas fa-wrench"></i></a>
+                    </button>
+                </div>
+                <img class="card-img-top" th:if="${!product.getImageUrl().isEmpty()}" th:src="${product.getImageUrl()}"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title" th:text="${product.getName()}"></h4>
+                    <p class="card-text" th:text="${product.getDescription()}"></p>
+                </div>
+                <div class="card-footer">
+                    <p th:text="${product.getPrice()}"></p>
+                    <a th:href="${'/cart/add/' + product.getId()}" class="btn btn-lg btn-outline-info btn-block"
+                       th:text="#{product.add.cart}"></a>
+                </div>
+            </div>
+        </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <div>
+            <span th:text="#{product.count} + ' ' + ${productsCount}"></span>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
 </body>
 </html>

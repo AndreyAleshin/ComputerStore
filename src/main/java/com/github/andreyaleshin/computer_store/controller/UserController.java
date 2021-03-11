@@ -26,7 +26,7 @@ public class UserController {
     @GetMapping("/info")
     public String showUserInfo(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Optional<User> user = userService.findByUsername(auth.getName());
+        Optional<User> user = userService.findUserByUsername(auth.getName());
         model.addAttribute("user", user);
         return "/user/info";
     }

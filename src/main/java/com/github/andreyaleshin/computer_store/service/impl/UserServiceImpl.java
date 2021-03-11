@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(User user) {
+    public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(Role.USER);
         user.setStatus(Status.ACTIVE);
@@ -32,17 +32,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByUsername(String username) {
+    public Optional<User> findUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
     @Override
-    public Optional<User> findByEmail(String email) {
+    public Optional<User> findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
     @Override
-    public Optional<User> findById(Long id) {
+    public Optional<User> findUserById(Long id) {
         return userRepository.findById(id);
     }
 

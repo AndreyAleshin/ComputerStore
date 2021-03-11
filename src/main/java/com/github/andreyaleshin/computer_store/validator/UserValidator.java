@@ -44,11 +44,11 @@ public class UserValidator implements Validator {
             errors.rejectValue("username", "size.userForm.username");
         }
 
-        if (userService.findByUsername(user.getUsername()).isPresent()) {
+        if (userService.findUserByUsername(user.getUsername()).isPresent()) {
             errors.rejectValue("username", "duplicate.userForm.username");
         }
 
-        if (userService.findByEmail(user.getEmail()).isPresent()) {
+        if (userService.findUserByEmail(user.getEmail()).isPresent()) {
             errors.rejectValue("email", "duplicate.userForm.email");
         }
 

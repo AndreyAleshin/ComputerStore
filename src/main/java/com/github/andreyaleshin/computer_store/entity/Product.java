@@ -26,9 +26,9 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @URL
-    @Column(name = "image")
-    private String imgUrl;
+//    @URL
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @Column(name = "price")
     private BigDecimal price;

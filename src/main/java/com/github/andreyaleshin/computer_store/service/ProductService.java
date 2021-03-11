@@ -7,16 +7,16 @@ import java.util.Optional;
 
 public interface ProductService {
 
-    void save(Product product);
+    void saveProduct(Product product);
 
-    void edit(Long id, Product newProduct);
+    void editProduct(Long id, Product newProduct);
 
-    void delete(Long id);
+    void deleteProductById(Long id);
 
-    Optional<Product> findById(Long id);
+    Optional<Product> findProductById(Long id);
 
-    List<Product> findAllByOrderByIdAsc();
+    List<Product> findAllProductsByOrderByIdAsc();
 
-    Long productCount();
+    long productCount();
 
 }

@@ -20,37 +20,37 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void save(Product product) {
+    public void saveProduct(Product product) {
         productRepository.save(product);
     }
 
     @Override
-    public void edit(Long id, Product newProduct) {
+    public void editProduct(Long id, Product newProduct) {
         Product existingProduct = productRepository.getOne(id);
         existingProduct.setName(newProduct.getName());
         existingProduct.setDescription(newProduct.getDescription());
-        existingProduct.setImgUrl(newProduct.getImgUrl());
+        existingProduct.setImageUrl(newProduct.getImageUrl());
         existingProduct.setPrice(newProduct.getPrice());
-        save(newProduct);
+        saveProduct(newProduct);
     }
 
     @Override
-    public void delete(Long id) {
-        productRepository.delete(id);
+    public void deleteProductById(Long id) {
+        productRepository.deleteById(id);
     }
 
     @Override
-    public Optional<Product> findById(Long id) {
+    public Optional<Product> findProductById(Long id) {
         return productRepository.findById(id);
     }
 
     @Override
-    public List<Product> findAllByOrderByIdAsc() {
+    public List<Product> findAllProductsByOrderByIdAsc() {
         return productRepository.findAllByOrderByIdAsc();
     }
 
     @Override
-    public Long productCount() {
+    public long productCount() {
         return productRepository.count();
     }
 

@@ -50,7 +50,7 @@ public class RegistrationController {
             return "/register";
         }
 
-        userService.save(userForm);
+        userService.saveUser(userForm);
         securityService.autoLogin(userForm.getUsername(), notHashedPassword);
 
         return "redirect:/home";

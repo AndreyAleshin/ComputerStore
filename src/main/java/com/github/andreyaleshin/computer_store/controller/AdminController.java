@@ -26,7 +26,7 @@ public class AdminController {
     @GetMapping("/adminPage")
     public String showAdminPage(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Optional<User> user = userService.findByUsername(auth.getName());
+        Optional<User> user = userService.findUserByUsername(auth.getName());
         model.addAttribute(
                 "username",
                 "Welcome "

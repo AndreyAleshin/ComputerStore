@@ -7,7 +7,7 @@
 <div th:fragment="navbar">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-        <a class="navbar-brand" th:href="@{/}">
+        <a class="navbar-brand" th:href="@{/home}">
             <img src="/img/computer-store-logo.png" alt="Home page"/>
             Computer Store
         </a>
@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Computers</a> <!-- /computersList -->
+                    <a class="nav-link" th:href="@{/product}">Computers</a>
                 </li>
 
                 <li class="nav-item dropdown">

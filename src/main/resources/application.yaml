@@ -1,6 +1,7 @@
 # Data Source (H2)
 spring:
   datasource:
+#    change path of data
     url: jdbc:h2:file:d:/aaa/data/computer_store;AUTO_SERVER=TRUE
     driver-class-name: org.h2.Driver
     username: sa
