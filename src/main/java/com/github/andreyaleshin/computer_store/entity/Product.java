@@ -3,7 +3,6 @@ package com.github.andreyaleshin.computer_store.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -26,8 +25,7 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-//    @URL
-    @Column(name = "image_url")
+    @Column(name = "image")
     private String imageUrl;
 
     @Column(name = "price")

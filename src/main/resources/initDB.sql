@@ -17,6 +17,6 @@ CREATE TABLE products
     id          INT PRIMARY KEY,
     name        VARCHAR(50) NOT NULL,
     description VARCHAR(50) NOT NULL,
-    image_url   VARCHAR(50) NOT NULL, --!!!
-    price       money       NOT NULL  -- money format???
+    image       VARCHAR(50) NOT NULL,
+    price       NUMERIC     NOT NULL -- money format???
 );

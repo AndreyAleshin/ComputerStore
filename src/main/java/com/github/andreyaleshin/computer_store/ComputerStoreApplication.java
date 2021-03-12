@@ -3,7 +3,6 @@ package com.github.andreyaleshin.computer_store;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// https://localhost:8080/
 @SpringBootApplication
 public class ComputerStoreApplication {
 
@@ -32,3 +31,4 @@ public class ComputerStoreApplication {
 // 16) <div th:replace="fragments/footer :: footer"></div> сделать так и с bootstrap link и скриптами
 // 17) сгруппировать все .css в один style.css файл
 // 18) если залогинился как admin перенаправлять на /admin/adminPage; user -> /user/info
+// 19) не работает шрифт на некоторых страницах (например, /user/info)
