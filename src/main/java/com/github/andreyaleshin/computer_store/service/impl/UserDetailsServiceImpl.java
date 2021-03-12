@@ -40,8 +40,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
 
-        log.debug(String.format("User with name : %s and password: %s was created.",
-                user.getUsername(), user.getPassword()));
+        log.debug(String.format(
+                "User with name : %s and password: %s was created.",
+                user.getUsername(),
+                user.getPassword())
+        );
 
         // Возвращаем объект внутреннего Spring User
         return new org.springframework.security.core.userdetails.User(

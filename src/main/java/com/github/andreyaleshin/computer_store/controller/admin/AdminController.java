@@ -1,4 +1,4 @@
-package com.github.andreyaleshin.computer_store.controller;
+package com.github.andreyaleshin.computer_store.controller.admin;
 
 import com.github.andreyaleshin.computer_store.entity.User;
 import com.github.andreyaleshin.computer_store.service.UserService;

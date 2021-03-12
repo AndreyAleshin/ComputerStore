@@ -20,4 +20,3 @@ CREATE TABLE products
     image_url   VARCHAR(50) NOT NULL, --!!!
     price       money       NOT NULL  -- money format???
 );
-
