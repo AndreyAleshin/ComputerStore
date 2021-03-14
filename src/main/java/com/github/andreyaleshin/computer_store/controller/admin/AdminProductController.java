@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Slf4j
-@RequestMapping("/admin/productManagement")
 @Controller
 public class AdminProductController {
 
@@ -26,51 +25,51 @@ public class AdminProductController {
         this.productValidator = productValidator;
     }
 
-    @GetMapping
+    @GetMapping("/admin/product-list")
     public String showAllProducts(Model model) {
-        model.addAttribute("productsList", productService.findAllProductsByOrderByIdAsc());
-        return "/admin/productManagement";
+        model.addAttribute("productList", productService.findAllProductsByOrderByIdAsc());
+        return "/admin/product-list";
     }
 
-    @GetMapping("/new")
+    @GetMapping("/admin/product-list/product-create")
     public String newProduct(Model model) {
         Product product = new Product();
         model.addAttribute("productForm", product);
-        model.addAttribute("method", "new");
-        return "/admin/productManagement";
+        model.addAttribute("method", "product-create");
+        return "/admin/product-create";
     }
 
-    @PostMapping("/new")
+    @PostMapping("/admin/product-list/product-create")
     public String newProduct(@ModelAttribute("productForm") Product productForm, BindingResult bindingResult,
                              Model model) {
         productValidator.validate(productForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             log.error(String.valueOf(bindingResult.getFieldError()));
-            model.addAttribute("method", "new");
-            return "/admin/productManagement";
+            model.addAttribute("method", "product-create");
+            return "/admin/product-create";
         }
 
         productService.saveProduct(productForm);
         log.debug(String.format("Product with id %s successfully created.", productForm.getId()));
 
-        return "redirect:/home";
+        return "redirect:/admin/product-list";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/admin/product-list/product-edit/{id}")
     public String editProduct(@PathVariable("id") Long productId, Model model) {
         Optional<Product> product = productService.findProductById(productId);
 
         if (product != null) {
             model.addAttribute("productForm", product);
-            model.addAttribute("method", "edit");
-            return "/admin/productManagement";
+            model.addAttribute("method", "product-edit");
+            return "/admin/product-edit";
         } else {
             return "/error/404";
         }
     }
 
-    @PostMapping("/edit/{id}")
+    @PostMapping("/admin/product-list/product-edit/{id}")
     public String editProduct(@PathVariable("id") Long productId,
                               @ModelAttribute("productForm") Product productForm,
                               BindingResult bindingResult,
@@ -80,7 +79,7 @@ public class AdminProductController {
         if (bindingResult.hasErrors()) {
             log.error(String.valueOf(bindingResult.getFieldError()));
             model.addAttribute("method", "edit");
-            return "/admin/productManagement";
+            return "/admin/product-list";
         }
 
         productService.editProduct(productId, productForm);
@@ -89,7 +88,7 @@ public class AdminProductController {
         return "redirect:/home";
     }
 
-    @PostMapping("/delete/{id}")
+    @PostMapping("/admin/product-list/delete/{id}")
     public String deleteProduct(@PathVariable("id") Long productId) {
         Optional<Product> product = productService.findProductById(productId);
 

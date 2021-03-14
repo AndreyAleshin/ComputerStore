@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
 
-@Controller
 @RequestMapping("/admin")
+@Controller
 public class AdminController {
 
     private final UserService userService;
@@ -23,7 +23,7 @@ public class AdminController {
         this.userService = userService;
     }
 
-    @GetMapping("/adminPage")
+    @GetMapping("/admin-page")
     public String showAdminPage(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Optional<User> user = userService.findUserByUsername(auth.getName());
@@ -33,13 +33,13 @@ public class AdminController {
                         + user.get().getUsername() + "/"
                         + user.get().getFirstName() + " "
                         + user.get().getLastName() + " ("
-                        + user.get().getEmail() + ")"
+                        + user.get().getEmail() + ")!"
         );
         model.addAttribute(
                 "adminMessage",
-                "Content Available Only for Users with ROLE_ADMIN"
+                "On this page you can manage users and products"
         );
-        return "/admin/adminPage";
+        return "/admin/admin-page";
     }
 
 }

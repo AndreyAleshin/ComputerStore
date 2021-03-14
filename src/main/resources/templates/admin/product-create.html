@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
+
+    <title>Create new product</title>
+</head>
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form class="form" th:object="${productForm}" th:method="post" autocomplete="off">
+                <fieldset>
+                    <h1 th:text="#{product.admin.create}"></h1>
+
+                    <div class="form-group">
+                        <label th:text="#{product.name}"></label>
+                        <input type="text" th:field="*{name}" class="form-control input-lg" title="name" autofocus/>
+                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('name')}"
+                             th:errors="*{name}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:text="#{product.description}"></label>
+                        <input type="text" th:field="*{description}" class="form-control input-lg" title="description"/>
+                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('description')}"
+                             th:errors="*{description}"></div>
+                    </div>
+
+                    <!--Do a validation for image-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label th:text="#{product.image}"></label>-->
+                    <!--                        <input type="url" th:field="*{image}" class="form-control input-lg" title="image"/>-->
+                    <!--                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('image')}"-->
+                    <!--                             th:errors="*{image}"></div>-->
+                    <!--                    </div>-->
+
+                    <div class="form-group">
+                        <label th:text="#{product.price}"></label>
+                        <input type="search" th:field="*{price}" class="form-control input-lg" title="price"/>
+                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('price')}"
+                             th:errors="*{price}"></div>
+                    </div>
+
+                    <input class="btn btn-outline-primary" type="submit" th:if="${method} == 'product-create'"
+                           th:action="@{/admin/product-create}" th:value="#{product.create}"/>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+</html>

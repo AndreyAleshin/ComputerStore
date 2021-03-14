@@ -32,3 +32,4 @@ public class ComputerStoreApplication {
 // 17) сгруппировать все .css в один style.css файл
 // 18) если залогинился как admin перенаправлять на /admin/adminPage; user -> /user/info
 // 19) не работает шрифт на некоторых страницах (например, /user/info)
+// 20) переименовать adminPage в admin-page и др.

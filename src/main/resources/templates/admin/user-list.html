@@ -1,5 +1,6 @@
-<!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org"
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
       lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -9,28 +10,37 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
 
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-
-    <!--    <title>Computer Store | Home</title>-->
-    <title th:utext="${title}"></title>
+    <title>Manage users</title>
 </head>
 
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<!--my-5 отступ сверху и снизу-->
-<div class="container my-5">
-    <div class="starter-template">
-        <h1 th:utext="${message}"></h1>
-        <h2>1. <a th:href="@{/admin/admin-page}">Admin page (ROLE_ADMIN)</a></h2>
-        <h2>2. <a th:href="@{/user/info}">User page (ROLE_USER)</a></h2>
-        <h2>3. <a th:href="@{/register}">Registration page (without login)</a></h2>
-        <h2>4. <a th:href="@{/login}">Login page (without login)</a></h2>
-        <h2>5. <a th:href="@{/about}">Normal page (without login)</a></h2>
-    </div>
-</div>
 
-<div th:replace="fragments/footer :: footer"></div>
+    <!--Сделать список юзеров на странице админа с возможностью их бана-->
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.status}"></td>
+        </tr>
+        </tbody>
+    </table>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
