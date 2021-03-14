@@ -52,7 +52,7 @@
                              th:errors="*{price}"></div>
                     </div>
 
-                    <input class="btn btn-outline-primary" type="submit" th:if="${method} == 'product-create'"
+                    <input type="submit" class="btn btn-outline-primary" th:if="${method} == 'product-create'"
                            th:action="@{/admin/product-create}" th:value="#{product.create}"/>
                 </fieldset>
             </form>

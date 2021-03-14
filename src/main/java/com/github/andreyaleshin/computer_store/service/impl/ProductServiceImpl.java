@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
         Product existingProduct = productRepository.getOne(id);
         existingProduct.setName(newProduct.getName());
         existingProduct.setDescription(newProduct.getDescription());
-        existingProduct.setImageUrl(newProduct.getImageUrl());
+        existingProduct.setImage(newProduct.getImage());
         existingProduct.setPrice(newProduct.getPrice());
         saveProduct(newProduct);
     }

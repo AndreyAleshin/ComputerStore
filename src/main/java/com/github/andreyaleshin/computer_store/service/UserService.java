@@ -2,6 +2,7 @@ package com.github.andreyaleshin.computer_store.service;
 
 import com.github.andreyaleshin.computer_store.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
@@ -13,5 +14,7 @@ public interface UserService {
     Optional<User> findUserByEmail(String email);
 
     Optional<User> findUserById(Long id);
+
+    List<User> findAllUsersByOrderByIdAsc();
 
 }

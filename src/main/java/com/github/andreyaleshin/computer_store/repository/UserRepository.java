@@ -1,9 +1,11 @@
 package com.github.andreyaleshin.computer_store.repository;
 
+import com.github.andreyaleshin.computer_store.entity.Product;
 import com.github.andreyaleshin.computer_store.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /*
@@ -17,6 +19,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
 
     Optional<User> findByEmail(String email);
+
+    List<User> findAllByOrderByIdAsc();
 
     // add update, delete etc.
 }

@@ -10,24 +10,24 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
 
-    <title>Edit products</title>
+    <title>Manage products</title>
 </head>
 
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<!--Отобразить все товары в виде таблицы-->
-<h1>Product list</h1>
-<a th:href="@{/admin/product-list/product-create}" class="btn btn-primary">Create new product</a>
+<h1><strong>Product list</strong></h1>
+<a class="btn btn-primary btn-lg" th:href="@{/admin/product-list/product-create}">Create new product</a>
 
-<table class="table table-hover">
+<table class="table table-bordered table-hover">
     <thead>
     <tr>
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
-        <th scope="col">Image URL</th>
+        <th scope="col">Image</th>
         <th scope="col">Price</th>
+        <th scope="col">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -35,11 +35,16 @@
         <td th:text="${product.getId()}"></td>
         <td th:text="${product.getName()}"></td>
         <td th:text="${product.getDescription()}"></td>
-        <td th:text="${product.getImageUrl()}"></td>
+        <td th:text="${product.getImage()}"></td>
         <td th:text="${product.getPrice()}"></td>
         <td>
-        <!--!!!!!-->
-<!--            <a href="#" th:href="@{'/admin/product-list/delete/' + ${product.getId()}}" class="btn btn-danger">Delete</a>-->
+            <!--FIX buttons-->
+            <input type="submit" class="btn btn-warning"
+                   th:action="@{/admin/product-list/edit/{productId}}"
+                   th:value="#{product.edit}">
+            <input type="submit" class="btn btn-danger"
+                   th:action="@{/admin/product-list/delete/{productId}}"
+                   th:value="#{product.delete}">
         </td>
     </tr>
     </tbody>

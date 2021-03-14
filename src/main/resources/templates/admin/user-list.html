@@ -16,31 +16,37 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
+<h1><strong>User list</strong></h1>
 
-    <!--Сделать список юзеров на странице админа с возможностью их бана-->
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Username</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr th:each="user : ${userList}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.email}"></td>
-            <td th:text="${user.username}"></td>
-            <td th:text="${user.firstName}"></td>
-            <td th:text="${user.lastName}"></td>
-            <td th:text="${user.status}"></td>
-        </tr>
-        </tbody>
-    </table>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Status</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.status}"></td>
+        <td>
+            <!--FIX buttons-->
+            <input type="submit" class="btn btn-warning"
+                   th:action="@{/admin/user-list/edit/{productId}}"
+                   th:value="#{user.edit}">
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

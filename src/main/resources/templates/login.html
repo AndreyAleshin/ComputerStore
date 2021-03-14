@@ -24,7 +24,7 @@
 
         <!--Попробовать сделать без style="", может через CSS-->
         <div th:if="${param.error}">
-            <p th:text="${errorMessage}" style="font-size: 20px; color: #FF1C20;"></p>
+            <p th:text="${errorMessage}" style="font-size: 20px; color: #FF1C20;" class="text-center"></p>
         </div>
 
         <form th:action="@{/login}" th:method="post">

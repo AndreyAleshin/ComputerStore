@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Slf4j
@@ -71,7 +72,7 @@ public class AdminProductController {
 
     @PostMapping("/admin/product-list/product-edit/{id}")
     public String editProduct(@PathVariable("id") Long productId,
-                              @ModelAttribute("productForm") Product productForm,
+                              @ModelAttribute("productForm") @Valid Product productForm,
                               BindingResult bindingResult,
                               Model model) {
         productValidator.validate(productForm, bindingResult);
@@ -88,7 +89,7 @@ public class AdminProductController {
         return "redirect:/home";
     }
 
-    @PostMapping("/admin/product-list/delete/{id}")
+    @DeleteMapping("/admin/product-list/delete/{id}")
     public String deleteProduct(@PathVariable("id") Long productId) {
         Optional<Product> product = productService.findProductById(productId);
 
