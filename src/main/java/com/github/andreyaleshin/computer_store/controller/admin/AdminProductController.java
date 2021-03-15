@@ -41,7 +41,8 @@ public class AdminProductController {
     }
 
     @PostMapping("/admin/product-list/product-create")
-    public String newProduct(@ModelAttribute("productForm") Product productForm, BindingResult bindingResult,
+    public String newProduct(@ModelAttribute("productForm") @Valid Product productForm,
+                             BindingResult bindingResult,
                              Model model) {
         productValidator.validate(productForm, bindingResult);
 
@@ -57,13 +58,14 @@ public class AdminProductController {
         return "redirect:/admin/product-list";
     }
 
+    // id сделать long (примитив)???
     @GetMapping("/admin/product-list/product-edit/{id}")
     public String editProduct(@PathVariable("id") Long productId, Model model) {
         Optional<Product> product = productService.findProductById(productId);
 
-        if (product != null) {
-            model.addAttribute("productForm", product);
-            model.addAttribute("method", "product-edit");
+        if (product.isPresent()) {
+            model.addAttribute("productFormEdit", product);
+            model.addAttribute("method", "product-edit"); // change or delete
             return "/admin/product-edit";
         } else {
             return "/error/404";
@@ -79,7 +81,7 @@ public class AdminProductController {
 
         if (bindingResult.hasErrors()) {
             log.error(String.valueOf(bindingResult.getFieldError()));
-            model.addAttribute("method", "edit");
+            model.addAttribute("method", "product-edit"); // !!!
             return "/admin/product-list";
         }
 
@@ -89,14 +91,14 @@ public class AdminProductController {
         return "redirect:/home";
     }
 
-    @DeleteMapping("/admin/product-list/delete/{id}")
+    @PostMapping("/admin/product-list/delete/{id}")
     public String deleteProduct(@PathVariable("id") Long productId) {
         Optional<Product> product = productService.findProductById(productId);
 
-        if (product != null) {
-            log.debug(String.format("Product with id %s successfully deleted.", product.get().getId()));
+        if (product.isPresent()) {
             productService.deleteProductById(productId);
-            return "redirect:/home";
+            log.debug(String.format("Product with id %s successfully deleted.", product.get().getId()));
+            return "redirect:/admin/product-list";
         } else {
             return "/error/404";
         }

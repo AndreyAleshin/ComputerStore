@@ -33,3 +33,4 @@ public class ComputerStoreApplication {
 // 18) если залогинился как admin перенаправлять на /admin/adminPage; user -> /user/info
 // 19) не работает шрифт на некоторых страницах (например, /user/info)
 // 20) переименовать adminPage в admin-page и др.
+// 21) если нет пользователей или продуктов в БД выводить на страницу текст об отсутствии <h2 th:case="null">No users yet!</h2>???

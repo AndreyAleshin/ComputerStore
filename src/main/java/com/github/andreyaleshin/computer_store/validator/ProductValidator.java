@@ -23,6 +23,7 @@ public class ProductValidator implements Validator {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "notEmpty.productForm.name");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "notEmpty.productForm.description");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "image", "notEmpty.productForm.image");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "price", "notEmpty.productForm.price");
 
         if (product.getName().length() < MINIMUM_PRODUCT_NAME_LENGTH ||

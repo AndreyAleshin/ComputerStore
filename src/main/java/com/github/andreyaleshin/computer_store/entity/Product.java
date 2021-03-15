@@ -34,10 +34,10 @@ public class Product {
     @Column(name = "price")
     private BigDecimal price;
 
-    @CreationTimestamp
-    private Date createdAt;
-
-    @UpdateTimestamp
-    private Date updatedAt;
+//    @CreationTimestamp
+//    private Date createdAt;
+//
+//    @UpdateTimestamp
+//    private Date updatedAt;
 
 }
