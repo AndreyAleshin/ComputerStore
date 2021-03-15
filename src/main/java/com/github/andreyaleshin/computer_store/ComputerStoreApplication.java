@@ -17,7 +17,7 @@ public class ComputerStoreApplication {
 // 2) write DOCS
 // 3) in pom.xml <version></version> разобраться
 // 4) Docker разобраться
-// 5) add favicon
+// 5) add favicon <link rel="icon" href="/favicon.ico">
 // 6) change YAML, SQL color scheme
 // 7) change JavaScript color scheme
 // 8) в MainController, если залогинен и заходишь на страницу логина перенаправлять на др. страницу (с сообщением "Вы уже залогинены", предложить выйти???)
@@ -32,5 +32,4 @@ public class ComputerStoreApplication {
 // 17) сгруппировать все .css в один style.css файл
 // 18) если залогинился как admin перенаправлять на /admin/adminPage; user -> /user/info
 // 19) не работает шрифт на некоторых страницах (например, /user/info)
-// 20) переименовать adminPage в admin-page и др.
-// 21) если нет пользователей или продуктов в БД выводить на страницу текст об отсутствии <h2 th:case="null">No users yet!</h2>???
+// 20) если нет пользователей или продуктов в БД выводить на страницу текст об отсутствии <h2 th:case="null">No users yet!</h2>???

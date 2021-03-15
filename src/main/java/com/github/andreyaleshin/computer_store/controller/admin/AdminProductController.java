@@ -74,7 +74,7 @@ public class AdminProductController {
 
     @PostMapping("/admin/product-list/product-edit/{id}")
     public String editProduct(@PathVariable("id") Long productId,
-                              @ModelAttribute("productForm") @Valid Product productForm,
+                              @ModelAttribute("productFormEdit") @Valid Product productForm,
                               BindingResult bindingResult,
                               Model model) {
         productValidator.validate(productForm, bindingResult);
@@ -82,13 +82,13 @@ public class AdminProductController {
         if (bindingResult.hasErrors()) {
             log.error(String.valueOf(bindingResult.getFieldError()));
             model.addAttribute("method", "product-edit"); // !!!
-            return "/admin/product-list";
+            return "/admin/product-edit";
         }
 
         productService.editProduct(productId, productForm);
         log.debug(String.format("Product with id %s has been successfully updated.", productId));
 
-        return "redirect:/home";
+        return "redirect:/admin/product-list";
     }
 
     @PostMapping("/admin/product-list/delete/{id}")

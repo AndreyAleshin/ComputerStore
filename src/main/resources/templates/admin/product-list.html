@@ -41,8 +41,9 @@
         <td>
             <!--Кнопки должны находиться бок о бок-->
             <!--change???-->
-            <a class="btn btn-warning" th:href="@{/admin/product-list/product-edit/{id}(id=${product.getId()})}">
-                Edit
+            <a class="btn btn-warning"
+               th:href="@{/admin/product-list/product-edit/{id}(id=${product.getId()})}"
+               th:text="#{product.edit}">
             </a>
 
             <form th:action="@{/admin/product-list/delete/{id}(id=${product.getId()})}" th:method="post">
