@@ -1,13 +1,35 @@
 You should create a new connection with H2 database in IntelliJ IDEA and insert this data to the Query
 Console. After that you will have 2 users in your DB (Admin and User) each with its own rights. Password
-for 'admin' and 'user' is 123. Now you can login with those credentials and see the functionality of the website.
+for 'admin' and 'user' is 123. Now you can login with those credentials and test the functionality of the website.
 
 -- ADMIN --
-INSERT INTO users (id, email, username, password, first_name, last_name, role, status)
-VALUES (1, 'admin@gmail.com', 'admin', '$2y$12$MU.0LpYEQrdrA0m3V2P90O6c3gpyZBAeadZxiUgMsOwVfiWw/8ndC', 'Admin','Adminin',
-        'ADMIN', 'ACTIVE');
+INSERT INTO users (id, username, email, password, first_name, last_name, role, status)
+VALUES (1, 'admin', 'admin@gmail.com', '$2y$12$MU.0LpYEQrdrA0m3V2P90O6c3gpyZBAeadZxiUgMsOwVfiWw/8ndC', 'Admin',
+        'Adminin', 'ADMIN', 'ACTIVE');
 
 -- USER --
-INSERT INTO users (id, email, username, password, first_name, last_name, role, status)
-VALUES (2, 'user@gmail.com', 'user', '$2y$12$Lra/NhPO772U1yozfbZ/XuC79Euj27T5p9u8TKm.PzRhfnpJXAZ8C', 'User', 'Userov',
-        'USER', 'ACTIVE');
+INSERT INTO users (id, username, email, password, first_name, last_name, role, status)
+VALUES (2, 'user', 'user@gmail.com', '$2y$12$Lra/NhPO772U1yozfbZ/XuC79Euj27T5p9u8TKm.PzRhfnpJXAZ8C', 'User',
+        'Userov', 'USER', 'ACTIVE');
+
+-- PRODUCTS --
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (1, 'Product1', 'Product1 description', 'https://via.placeholder.com/640x480', 10);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (2, 'Product2', 'Product2 description', 'https://via.placeholder.com/640x480', 20);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (3, 'Product3', 'Product3 description', 'https://via.placeholder.com/640x480', 30);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (4, 'Product4', 'Product4 description', 'https://via.placeholder.com/640x480', 40);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (5, 'Product5', 'Product5 description', 'https://via.placeholder.com/640x480', 50);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (6, 'Product6', 'Product6 description', 'https://via.placeholder.com/640x480', 60);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (7, 'Product7', 'Product7 description', 'https://via.placeholder.com/640x480', 70);
