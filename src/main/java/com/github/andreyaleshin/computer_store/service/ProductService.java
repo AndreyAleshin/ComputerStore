@@ -13,10 +13,10 @@ public interface ProductService {
 
     void deleteProductById(Long id);
 
+    long productCount();
+
     Optional<Product> findProductById(Long id);
 
     List<Product> findAllProductsByOrderByIdAsc();
-
-    long productCount();
 
 }

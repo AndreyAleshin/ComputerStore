@@ -26,7 +26,7 @@
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
-        <th scope="col">Image</th>
+        <th scope="col">Image URL</th>
         <th scope="col">Price</th>
         <th scope="col">Actions</th>
     </tr>
@@ -36,7 +36,7 @@
         <td th:text="${product.getId()}"></td>
         <td th:text="${product.getName()}"></td>
         <td th:text="${product.getDescription()}"></td>
-        <td th:text="${product.getImage()}"></td>
+        <td th:text="${product.getImageUrl()}"></td>
         <td th:text="${product.getPrice()}"></td>
         <td>
             <!--Кнопки должны находиться бок о бок-->

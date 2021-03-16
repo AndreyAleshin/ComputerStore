@@ -40,8 +40,9 @@
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.status}"></td>
         <td>
-            <a class="btn btn-warning" th:href="@{/admin/user-list/user-edit/{id}(id=${user.getId()})}">
-                Edit
+            <a class="btn btn-warning"
+               th:href="@{/admin/user-list/user-edit/{id}(id=${user.getId()})}"
+               th:text="#{product.edit}">
             </a>
         </td>
     </tr>

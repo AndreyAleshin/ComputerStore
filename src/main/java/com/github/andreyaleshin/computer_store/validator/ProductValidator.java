@@ -23,12 +23,12 @@ public class ProductValidator implements Validator {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "notEmpty.productForm.name");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "notEmpty.productForm.description");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "image", "notEmpty.productForm.image");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "imageUrl", "notEmpty.productForm.imageUrl");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "price", "notEmpty.productForm.price");
 
         if (product.getName().length() < MINIMUM_PRODUCT_NAME_LENGTH ||
                 product.getName().length() > MAXIMUM_PRODUCT_NAME_LENGTH) {
-            errors.rejectValue("name", "length.productForm.name");
+            errors.rejectValue("name", "productForm.name.length");
         }
     }
 

@@ -3,12 +3,11 @@ package com.github.andreyaleshin.computer_store.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -28,8 +27,10 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "image")
-    private String image;
+    @URL
+    @NotEmpty
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @Column(name = "price")
     private BigDecimal price;

@@ -35,13 +35,13 @@ public class AdminProductController {
     @GetMapping("/admin/product-list/product-create")
     public String newProduct(Model model) {
         Product product = new Product();
-        model.addAttribute("productForm", product);
+        model.addAttribute("productFormAdd", product);
         model.addAttribute("method", "product-create");
         return "/admin/product-create";
     }
 
     @PostMapping("/admin/product-list/product-create")
-    public String newProduct(@ModelAttribute("productForm") @Valid Product productForm,
+    public String newProduct(@ModelAttribute("productFormAdd") @Valid Product productForm,
                              BindingResult bindingResult,
                              Model model) {
         productValidator.validate(productForm, bindingResult);

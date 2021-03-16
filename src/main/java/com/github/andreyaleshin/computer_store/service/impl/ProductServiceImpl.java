@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
         Product existingProduct = productRepository.getOne(id);
         existingProduct.setName(newProduct.getName());
         existingProduct.setDescription(newProduct.getDescription());
-        existingProduct.setImage(newProduct.getImage());
+        existingProduct.setImageUrl(newProduct.getImageUrl());
         existingProduct.setPrice(newProduct.getPrice());
         saveProduct(newProduct);
     }
@@ -40,6 +40,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public long productCount() {
+        return productRepository.count();
+    }
+
+    @Override
     public Optional<Product> findProductById(Long id) {
         return productRepository.findById(id);
     }
@@ -47,11 +52,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAllProductsByOrderByIdAsc() {
         return productRepository.findAllByOrderByIdAsc();
-    }
-
-    @Override
-    public long productCount() {
-        return productRepository.count();
     }
 
 }

@@ -41,25 +41,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label th:text="#{product.image}"></label>
-                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('image')}"
-                             th:errors="*{image}"></div>
-                        <input type="text" class="form-control input-lg" title="image" th:field="*{image}"/>
+                        <label th:text="#{product.imageUrl}"></label>
+                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('imageUrl')}"
+                             th:errors="*{imageUrl}"></div>
+                        <input type="text" class="form-control input-lg" title="image" th:field="*{imageUrl}"/>
                     </div>
 
                     <div class="form-group">
                         <label th:text="#{product.price}"></label>
                         <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('price')}"
                              th:errors="*{price}"></div>
-                        <input type="search" class="form-control input-lg" title="price" th:field="*{price}"/>
+                        <input type="text" class="form-control input-lg" title="price" th:field="*{price}"/>
                     </div>
 
                     <!--!!!!-->
                     <input type="submit" class="btn btn-outline-primary btn-block"
                            th:if="${method} == 'product-edit'"
-                           th:action="@{/admin/product-edit/}"
+                           th:action="@{/admin/product-edit}"
                            th:value="#{product.confirm}"/>
-                    <input type="reset" class="btn btn-outline-info btn-block" th:value="#{product.form.clear}">
+                    <input type="reset" class="btn btn-outline-info btn-block" th:value="#{product.form.edit.reset}">
                 </fieldset>
             </form>
 
