@@ -42,7 +42,7 @@ public class RegistrationController {
 
     // todo change user argument to UserDTO
     @PostMapping
-    public String registerUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult) {
+    public String registerUser(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
 
         String notHashedPassword = userForm.getPassword();

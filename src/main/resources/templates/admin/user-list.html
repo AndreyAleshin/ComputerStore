@@ -16,7 +16,7 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<h1 class="text-center my-3"><strong>User list</strong></h1>
+<h1 class="text-center my-4"><strong>User list</strong></h1>
 
 <table class="table table-bordered table-hover">
     <thead>
@@ -40,10 +40,13 @@
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.status}"></td>
         <td>
-            <a class="btn btn-warning"
-               th:href="@{/admin/user-list/user-edit/{id}(id=${user.getId()})}"
-               th:text="#{product.edit}">
-            </a>
+            <form th:action="@{/admin/user-list/delete/{id}(id=${user.getId()})}" th:method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn btn-danger"
+                        onclick="return confirm('Are you sure you want to delete this user?')"
+                        th:text="#{user.delete}">
+                </button>
+            </form>
         </td>
     </tr>
     </tbody>

@@ -21,10 +21,10 @@ public class ProductValidator implements Validator {
     public void validate(Object target, Errors errors) {
         Product product = (Product) target;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "notEmpty.productForm.name");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "notEmpty.productForm.description");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "imageUrl", "notEmpty.productForm.imageUrl");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "price", "notEmpty.productForm.price");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "productForm.notEmpty.name");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "productForm.notEmpty.description");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "imageUrl", "productForm.notEmpty.imageUrl");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "price", "productForm.notEmpty.price");
 
         if (product.getName().length() < MINIMUM_PRODUCT_NAME_LENGTH ||
                 product.getName().length() > MAXIMUM_PRODUCT_NAME_LENGTH) {

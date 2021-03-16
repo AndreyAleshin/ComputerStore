@@ -32,33 +32,33 @@ public class UserValidator implements Validator {
     public void validate(Object target, Errors errors) {
         User user = (User) target;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "notEmpty.userForm.email");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "notEmpty.userForm.username");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "notEmpty.userForm.password");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "notEmpty.userForm.passwordConfirm");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "notEmpty.userForm.firstName");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "notEmpty.userForm.lastName");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "userForm.notEmpty.username");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "userForm.notEmpty.email");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "userForm.notEmpty.password");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "userForm.notEmpty.passwordConfirm");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "userForm.notEmpty.firstName");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "userForm.notEmpty.lastName");
 
         if (user.getUsername().length() < MINIMUM_USERNAME_LENGTH ||
                 user.getUsername().length() > MAXIMUM_USERNAME_LENGTH) {
-            errors.rejectValue("username", "size.userForm.username");
+            errors.rejectValue("username", "userForm.size.username");
         }
 
         if (userService.findUserByUsername(user.getUsername()).isPresent()) {
-            errors.rejectValue("username", "duplicate.userForm.username");
+            errors.rejectValue("username", "userForm.duplicate.username");
         }
 
         if (userService.findUserByEmail(user.getEmail()).isPresent()) {
-            errors.rejectValue("email", "duplicate.userForm.email");
+            errors.rejectValue("email", "userForm.duplicate.email");
         }
 
         if (user.getPassword().length() < MINIMUM_PASSWORD_LENGTH ||
                 user.getPassword().length() > MAXIMUM_PASSWORD_LENGTH) {
-            errors.rejectValue("password", "size.userForm.password");
+            errors.rejectValue("password", "userForm.size.password");
         }
 
         if (!user.getPasswordConfirm().equals(user.getPassword())) {
-            errors.rejectValue("passwordConfirm", "match.userForm.passwordConfirm");
+            errors.rejectValue("passwordConfirm", "userForm.match.passwordConfirm");
         }
 
     }
