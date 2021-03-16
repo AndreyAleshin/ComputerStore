@@ -10,6 +10,8 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
 
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+
     <title>Manage users</title>
 </head>
 
@@ -21,17 +23,16 @@
 <table class="table table-bordered table-hover">
     <thead>
     <tr>
-        <th>ID</th>
-        <th>Email</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Status</th>
+        <th scope="col">ID</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Status</th>
         <th scope="col">Actions</th>
     </tr>
     </thead>
     <tbody>
-    <!--Center the content in table cells class="text-center"-->
     <tr th:each="user : ${userList}" >
         <td th:text="${user.id}"></td>
         <td th:text="${user.email}"></td>

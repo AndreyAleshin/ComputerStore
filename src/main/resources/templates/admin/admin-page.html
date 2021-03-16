@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/adminPage.css}"/>
 
     <title>Admin Page</title>
 </head>
@@ -19,6 +18,7 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
+<!--change class container, panels???-->
 <div class="container text-center my-5">
     <div class="panel-group">
         <div class="panel panel-primary">
@@ -26,19 +26,14 @@
                 <h1 th:utext="${username}"></h1>
             </div>
 
-            <!--Убрать???-->
-            <form th:action="@{/logout}" th:method="get">
-                <button type="submit" class="btn btn-danger" name="logout">Logout</button>
-            </form>
-            <!--th:utext and th:text ???-->
-            <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+            <h2 class="text-center" th:text="${adminMessage}"></h2>
         </div>
     </div>
 
-    <!--Change to BUTTONS-->
-    <div class="form-group">
-        <h5 class="text-center"><a class="btn btn-primary" th:href="@{/admin/user-list}">Manage users</a></h5>
-        <h5 class="text-center"><a class="btn btn-primary" th:href="@{/admin/product-list}">Manage products</a></h5>
+
+    <div class="btn-group-lg">
+        <a class="btn btn-primary" role="button" th:href="@{/admin/user-list}" th:text="#{user.manage.button}"></a>
+        <a class="btn btn-primary" role="button" th:href="@{/admin/product-list}" th:text="#{product.manage.button}"></a>
     </div>
 </div>
 

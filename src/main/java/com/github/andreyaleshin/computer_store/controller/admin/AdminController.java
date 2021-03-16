@@ -27,14 +27,7 @@ public class AdminController {
     public String showAdminPage(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Optional<User> user = userService.findUserByUsername(auth.getName());
-        model.addAttribute(
-                "username",
-                "Welcome "
-                        + user.get().getUsername() + "/"
-                        + user.get().getFirstName() + " "
-                        + user.get().getLastName() + " ("
-                        + user.get().getEmail() + ")!"
-        );
+        model.addAttribute("username", "Welcome, " + user.get().getUsername() + "!");
         model.addAttribute(
                 "adminMessage",
                 "On this page you can manage users and products"
