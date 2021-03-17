@@ -38,3 +38,5 @@ public class ComputerStoreApplication {
 на product-create и product-edit выдаёт ошибку (только если есть символы в поле - выдаёт ошибку "must be a valid URL")
  */
 // убрать поле Status из User класса???
+// rename product-create to product-add
+// implement logout page???

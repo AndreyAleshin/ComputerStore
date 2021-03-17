@@ -17,6 +17,10 @@
 </head>
 
 <body>
+<div class="d-flex justify-content-center my-3">
+    <a class="btn btn-outline-success btn-lg" th:href="@{/home}" th:text="#{home.return}"></a>
+</div>
+
 <div class="d-flex h-100 my-5">
     <div class="m-auto">
         <h1 class="form-login-heading mb-4">Please Log In</h1>
@@ -40,6 +44,7 @@
                 <h5 class="text-center"><a th:href="@{/register}">Create an account</a></h5>
             </div>
         </form>
+
     </div>
 </div>
 
