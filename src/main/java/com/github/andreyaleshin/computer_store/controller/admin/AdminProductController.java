@@ -32,15 +32,15 @@ public class AdminProductController {
         return "/admin/product-list";
     }
 
-    @GetMapping("/admin/product-list/product-create")
+    @GetMapping("/admin/product-list/product-add")
     public String newProduct(Model model) {
         Product product = new Product();
         model.addAttribute("productFormAdd", product);
-        model.addAttribute("method", "product-create");
-        return "/admin/product-create";
+        model.addAttribute("method", "product-add");
+        return "/admin/product-add";
     }
 
-    @PostMapping("/admin/product-list/product-create")
+    @PostMapping("/admin/product-list/product-add")
     public String newProduct(@ModelAttribute("productFormAdd") @Valid Product productForm,
                              BindingResult bindingResult,
                              Model model) {
@@ -49,7 +49,7 @@ public class AdminProductController {
         if (bindingResult.hasErrors()) {
             log.error(String.valueOf(bindingResult.getFieldError()));
             model.addAttribute("method", "product-create");
-            return "/admin/product-create";
+            return "/admin/product-add";
         }
 
         productService.saveProduct(productForm);
