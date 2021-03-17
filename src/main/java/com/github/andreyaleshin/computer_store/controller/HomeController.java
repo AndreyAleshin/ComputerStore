@@ -25,4 +25,9 @@ public class HomeController {
         return "/about";
     }
 
+    @GetMapping("/error/403")
+    public String accessDenied() {
+        return "/error/403";
+    }
+
 }
