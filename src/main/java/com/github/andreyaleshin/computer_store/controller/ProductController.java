@@ -30,7 +30,7 @@ public class ProductController {
         return productService.findAllProductsByOrderByIdAsc();
     }
 
-    private Long productsCount() {
+    private long productsCount() {
         return productService.productCount();
     }
 
