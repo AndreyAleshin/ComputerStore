@@ -33,7 +33,7 @@ public class ComputerStoreApplication {
 // если залогинился как admin перенаправлять на /admin/adminPage; user -> /user/info
 // не работает шрифт на некоторых страницах (например, /user/info) -> дело в main.css
 // если нет пользователей или продуктов в БД выводить на страницу текст об отсутствии <h2 th:case="null">No users yet!</h2>???
-// "Cannot resolve..." message in product-edit
+// "Cannot resolve..." homeMessage in product-edit
 /* попробовать без аннотаций валидироавть URL (в Product); если использовать только @URL, то при отправке пустой формы
 на product-create и product-edit выдаёт ошибку (только если есть символы в поле - выдаёт ошибку "must be a valid URL")
  */

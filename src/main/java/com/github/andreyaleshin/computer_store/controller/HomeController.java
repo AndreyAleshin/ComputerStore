@@ -15,8 +15,7 @@ public class HomeController {
 
     @GetMapping({"/", "/home"})
     public String showHome(Model model) {
-        model.addAttribute("title", "Computer Store | Home");
-        model.addAttribute("message", "This is a home page!");
+        model.addAttribute("homeMessage", "This is a home page!");
         return "/home";
     }
 
