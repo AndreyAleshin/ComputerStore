@@ -10,7 +10,7 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
 
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
 
     <title>Registration Form</title>
@@ -20,7 +20,7 @@
 <div th:replace="fragments/navbar :: navbar"></div>
 
 <div class="container my-5">
-    <h2 class="form-signin-heading">Registration Form</h2>
+    <h2 class="form-registration-heading">Registration Form</h2>
 
     <form th:action="@{/register}" th:method="post" th:object="${userForm}">
 
