@@ -14,12 +14,7 @@ h2 {
     text-align: center;
 }
 
-#cart {
-    height: 44px;
-    width: 44px;
-}
-
-#github-icon {
+#cart, #github-icon {
     height: 44px;
     width: 44px;
 }

@@ -41,16 +41,17 @@
         <td th:text="${product.getImageUrl()}"></td>
         <td th:text="${product.getPrice()}"></td>
         <td>
+            <!--Кнопка EDIT обрезана-->
             <div class="btn-group">
                 <a class="btn btn-warning mr-2" role="button"
                    th:href="@{/admin/product-list/product-edit/{id}(id=${product.getId()})}"
-                   th:text="#{product.edit.button}">
+                   th:utext="#{product.edit.button} + ' ' + #{product.admin.edit.glyphicon}">
                 </a>
                 <form th:action="@{/admin/product-list/delete/{id}(id=${product.getId()})}" th:method="post">
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" class="btn btn-danger"
                             onclick="return confirm('Are you sure you want to delete this product?')"
-                            th:text="#{product.delete.button}">
+                            th:utext="#{product.delete.button} + ' ' + #{product.delete.button.glyphicon}">
                     </button>
                 </form>
             </div>
