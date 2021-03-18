@@ -15,13 +15,12 @@
     <div class="panel-group">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h1 th:utext="${username}"></h1>
+                <h1 th:text="${username}"></h1>
             </div>
 
-            <h2 class="text-center" th:text="${adminMessage}"></h2>
+            <h2 class="text-center mt-3 mb-5" th:text="${adminMessage}"></h2>
         </div>
     </div>
-
 
     <div class="btn-group-lg">
         <a class="btn btn-primary" role="button" th:href="@{/admin/user-list}" th:text="#{user.manage.button}"></a>

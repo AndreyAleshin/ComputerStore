@@ -9,7 +9,9 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-
+<div class="text-center my-5" th:if="${products.isEmpty()}">
+    <h2><strong>There are no products here yet. Please check back later.</strong></h2>
+</div>
 
 <div class="container">
     <div class="row">

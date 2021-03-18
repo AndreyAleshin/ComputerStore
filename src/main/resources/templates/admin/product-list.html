@@ -18,7 +18,11 @@
     </a>
 </div>
 
-<table class="table table-bordered table-hover">
+<div class="text-center my-5" th:if="${productList.isEmpty()}">
+    <h2><strong>There are no products on the list yet.</strong></h2>
+</div>
+
+<table class="table table-bordered table-hover" th:if="${!productList.isEmpty()}">
     <thead>
     <tr>
         <th scope="col">ID</th>
