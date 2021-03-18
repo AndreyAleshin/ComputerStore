@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <div th:replace="fragments/header :: header"></div>
+    <title>Shopping cart</title>
+</head>
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!--do a TABLE-->
+<div class="container">
+    <div class="col-3" th:if="${!products.isEmpty()}">
+        <h2 th:text="#{shoppingCart.title}"></h2>
+
+        <div class="card" th:each="product : ${products.entrySet()}">
+            <h3 th:text="${product.getKey().get().getName()}"></h3>
+            <h4 th:text="${product.getValue()}"></h4>
+            <h4 th:text="${product.getKey().get().getPrice()}"></h4>
+
+            <a class="col-md-1" th:href="@{/shopping-cart/remove/{id}(id=${product.getKey().get().getId()})}">
+                <button type="button" class="btn btn-primary" th:text="#{shoppingCart.remove}"></button>
+            </a>
+            <br>
+        </div>
+    </div>
+
+    <div th:class="text-center" th:if="${products.isEmpty()}">
+        <h2 th:text="#{shoppingCart.isEmpty}"></h2>
+    </div>
+
+    <br>
+
+    <a th:href="@{/shopping-cart/clear/}" class="col-md-1">
+        <button type="button" class="btn btn-info" th:text="#{shoppingCart.clear}"></button>
+    </a>
+
+    <br>
+
+    <div class="row">
+        <h3 th:text="#{shoppingCart.totalPrice} + ' ' + ${totalPrice}"></h3>">
+        <a th:href="@{/shopping-cart/checkout}" class="col-md-1">
+            <button type="button" class="btn btn-success" th:text="#{shoppingCart.checkout}"></button>
+        </a>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+<div th:insert="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>

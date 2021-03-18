@@ -36,7 +36,6 @@ public class AdminProductController {
     public String newProduct(Model model) {
         Product product = new Product();
         model.addAttribute("productFormAdd", product);
-        model.addAttribute("method", "product-add");
         return "/admin/product-add";
     }
 
@@ -48,7 +47,6 @@ public class AdminProductController {
 
         if (bindingResult.hasErrors()) {
             log.error(String.valueOf(bindingResult.getFieldError()));
-            model.addAttribute("method", "product-create");
             return "/admin/product-add";
         }
 
@@ -65,7 +63,6 @@ public class AdminProductController {
 
         if (product.isPresent()) {
             model.addAttribute("productFormEdit", product);
-            model.addAttribute("method", "product-edit"); // change or delete
             return "/admin/product-edit";
         } else {
             return "/error/404";
@@ -81,7 +78,6 @@ public class AdminProductController {
 
         if (bindingResult.hasErrors()) {
             log.error(String.valueOf(bindingResult.getFieldError()));
-            model.addAttribute("method", "product-edit"); // !!!
             return "/admin/product-edit";
         }
 

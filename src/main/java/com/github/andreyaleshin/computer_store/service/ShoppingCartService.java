@@ -5,19 +5,20 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public interface ShoppingCartService {
 
-    void addProduct(Product product);
+    void addProduct(Optional<Product> product);
 
-    void removeProduct(Product product);
+    void removeProduct(Optional<Product> product);
 
     void clearCart();
 
     void checkout();
 
-    Map<Product, Integer> getProductsInCart();
+    Map<Optional<Product>, Integer> getProductsInCart();
 
     BigDecimal getTotalPrice();
 

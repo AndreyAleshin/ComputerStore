@@ -32,12 +32,12 @@ public class UserValidator implements Validator {
     public void validate(Object target, Errors errors) {
         User user = (User) target;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "userForm.notEmpty.username");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "userForm.notEmpty.email");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "userForm.notEmpty.password");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "userForm.notEmpty.passwordConfirm");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "userForm.notEmpty.firstName");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "userForm.notEmpty.lastName");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "userForm.empty.username");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "userForm.empty.email");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "userForm.empty.password");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "userForm.empty.passwordConfirm");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "userForm.empty.firstName");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "userForm.empty.lastName");
 
         if (user.getUsername().length() < MINIMUM_USERNAME_LENGTH ||
                 user.getUsername().length() > MAXIMUM_USERNAME_LENGTH) {
