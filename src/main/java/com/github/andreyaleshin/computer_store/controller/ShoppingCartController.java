@@ -26,9 +26,9 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/shopping-cart")
-    public String cart(Model model) {
+    public String showCart(Model model) {
         model.addAttribute("products", shoppingCartService.getProductsInCart());
-        model.addAttribute("totalPrice", shoppingCartService.getTotalPrice());
+        model.addAttribute("totalCost", shoppingCartService.getTotalPrice());
 
         return "/shopping-cart";
     }
@@ -42,7 +42,7 @@ public class ShoppingCartController {
             log.debug(String.format("Product with id: %s added to shopping cart.", id));
         }
 
-        return "redirect:/home";
+        return "redirect:/product/all";
     }
 
     @GetMapping("/shopping-cart/remove/{id}")

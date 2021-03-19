@@ -27,11 +27,11 @@
                     <p class="card-text" th:text="${product.getDescription()}"></p>
                 </div>
 
-                <!--do onClick event-->
                 <div class="card-footer">
                     <p th:text="${product.getPrice()}"></p>
 
                     <a class="btn btn-lg btn-outline-info btn-block"
+                       onclick="alert('This product has been added to your shopping cart!')"
                        th:href="@{/shopping-cart/add/{id}(id=${product.getId()})}"
                        th:utext="#{product.cart.add.glyphicon} + ' ' + #{product.cart.add}">
                     </a>
