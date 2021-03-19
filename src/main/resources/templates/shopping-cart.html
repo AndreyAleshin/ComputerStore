@@ -29,6 +29,7 @@
         <thead>
         <tr class="table-primary">
             <th scope="col">Product name</th>
+            <th scope="col">Image</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
             <th scope="col">Actions</th>
@@ -37,6 +38,7 @@
         <tbody>
         <tr th:each="product : ${products}">
             <td th:text="${product.getKey().get().getName()}"></td>
+            <td><img style="height: 150px; width: auto;" th:src="${product.getKey().get().getImageUrl()}" alt="Product image"></td>
             <td th:text="${product.getValue()}"></td>
             <td th:text="${product.getKey().get().getPrice()}"></td>
             <td>

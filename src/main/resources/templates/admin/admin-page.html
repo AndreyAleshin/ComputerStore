@@ -10,24 +10,19 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<!--change class container, panels???-->
 <div class="container text-center my-5">
-    <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h1 th:text="${username}"></h1>
-            </div>
+    <h1 th:text="${username}"></h1>
 
-            <h2 class="text-center mt-3 mb-5" th:text="${adminMessage}"></h2>
-        </div>
-    </div>
-
-    <div class="btn-group-lg">
-        <a class="btn btn-primary" role="button" th:href="@{/admin/user-list}" th:text="#{user.manage.button}"></a>
-        <a class="btn btn-primary" role="button" th:href="@{/admin/product-list}" th:text="#{product.manage.button}"></a>
-    </div>
+    <h2 class="text-center mt-3 mb-5" th:text="${adminMessage}"></h2>
 </div>
 
+<div class="btn-group-lg text-center">
+    <a class="btn btn-primary" role="button" th:href="@{/admin/user-list}" th:text="#{user.manage.button}"></a>
+    <a class="btn btn-primary" role="button" th:href="@{/admin/product-list}" th:text="#{product.manage.button}"></a>
+</div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
 <div th:insert="~{fragments/scripts :: scripts}"></div>
 </body>
 </html>

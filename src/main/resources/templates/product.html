@@ -18,8 +18,8 @@
         <h4><span th:text="#{product.count} + ' ' + ${productsCount}"></span></h4>
     </div>
     <div class="row">
-        <div class="col-sm-4 mb-4" th:each="product : ${products}">
-            <div class="card" style="width: 18rem;" >
+        <div class="card-deck p-3" th:each="product : ${products}">
+            <div class="card" style="width: 18rem;">
                 <img class="card-img-top" th:src="${product.getImageUrl()}" alt="Product image">
 
                 <div class="card-body">
