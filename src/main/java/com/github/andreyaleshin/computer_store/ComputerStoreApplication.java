@@ -42,3 +42,4 @@ public class ComputerStoreApplication {
 // выровнять footer по левому краю
 // добавить значок валюты возле стоимости
 // implement SEARCH field
+// MAIN PAGElo
