@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <div th:replace="fragments/header :: header"></div>
+    <title>Product details</title>
+</head>
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container my-5" style="max-width: 75%">
+    <div class="row">
+        <div class="col">
+            <img th:src="${product.get().getImageUrl()}" alt="Product image">
+        </div>
+
+        <div class="col">
+            <h1 class="text-center"><strong th:text="${product.get().getName()}"></strong></h1>
+            <h3 class="text-left pt-5 pb-5" th:text="${product.get().getDescription()}"></h3>
+            <h2 class="text-center mb-5"><strong th:text="${product.get().getPrice()}"></strong></h2>
+
+            <a class="btn btn-outline-info btn-lg btn-block"
+               onclick="alert('This product has been added to your shopping cart!')"
+               th:href="@{/shopping-cart/add/{id}(id=${product.get().getId()})}"
+               th:utext="#{product.cart.add.glyphicon} + ' ' + #{product.cart.add}">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+<div th:insert="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>

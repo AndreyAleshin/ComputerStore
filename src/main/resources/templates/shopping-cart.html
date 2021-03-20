@@ -25,7 +25,6 @@
     </div>
 
     <table class="table table-bordered table-hover">
-        <!--Add product image-->
         <thead>
         <tr class="table-primary">
             <th scope="col">Product name</th>
@@ -38,13 +37,18 @@
         <tbody>
         <tr th:each="product : ${products}">
             <td th:text="${product.getKey().get().getName()}"></td>
-            <td><img style="height: 150px; width: auto;" th:src="${product.getKey().get().getImageUrl()}" alt="Product image"></td>
+            <td><img style="height: 150px; width: auto" th:src="${product.getKey().get().getImageUrl()}" alt="Product image"></td>
             <td th:text="${product.getValue()}"></td>
             <td th:text="${product.getKey().get().getPrice()}"></td>
             <td>
                 <a class="btn btn-primary" role="button"
                    th:href="@{/shopping-cart/remove/{id}(id=${product.getKey().get().getId()})}"
                    th:text="#{shoppingCart.remove}">
+                </a>
+
+                <a class="btn btn-info" role="button"
+                   th:href="@{/product/details/{id}(id=${product.getKey().get().getId()})}"
+                   th:text="#{product.cart.details}">
                 </a>
             </td>
         </tr>

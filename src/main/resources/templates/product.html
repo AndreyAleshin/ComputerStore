@@ -13,27 +13,31 @@
     <h2><strong>There are no products here yet. Please check back later.</strong></h2>
 </div>
 
-<div class="container mt-5" th:if="${!products.isEmpty()}">
+<div class="container mt-5" style="max-width: 90%" th:if="${!products.isEmpty()}">
     <div>
         <h4><span th:text="#{product.count} + ' ' + ${productsCount}"></span></h4>
     </div>
     <div class="row">
         <div class="card-deck p-3" th:each="product : ${products}">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem">
                 <img class="card-img-top" th:src="${product.getImageUrl()}" alt="Product image">
 
                 <div class="card-body">
-                    <h4 class="card-title" th:text="${product.getName()}"></h4>
-                    <p class="card-text" th:text="${product.getDescription()}"></p>
+                    <h4 class="card-title"><strong th:text="${product.getName()}"></strong></h4>
                 </div>
 
                 <div class="card-footer">
-                    <p th:text="${product.getPrice()}"></p>
+                    <h4 th:text="${product.getPrice()}"></h4>
 
-                    <a class="btn btn-lg btn-outline-info btn-block"
+                    <a class="btn btn-outline-info btn-lg btn-block"
                        onclick="alert('This product has been added to your shopping cart!')"
                        th:href="@{/shopping-cart/add/{id}(id=${product.getId()})}"
                        th:utext="#{product.cart.add.glyphicon} + ' ' + #{product.cart.add}">
+                    </a>
+
+                    <a class="btn btn-outline-success btn-lg btn-block"
+                       th:href="@{/product/details/{id}(id=${product.getId()})}"
+                       th:utext="#{product.cart.details.glyphicon} + ' ' + #{product.cart.details}">
                     </a>
                 </div>
             </div>

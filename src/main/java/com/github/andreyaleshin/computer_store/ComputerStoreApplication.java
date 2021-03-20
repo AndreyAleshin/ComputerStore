@@ -15,6 +15,8 @@ public class ComputerStoreApplication {
 // todo issues below
 // попробовать сдлать gif-ку вебсайта в проекте (README.md) на Github
 // write DOCS (not much)
+// TESTS
+// изменить имена компьютеров и стоимость
 // in pom.xml <version></version> разобраться
 // Docker???
 // add favicon <link rel="icon" href="/favicon.ico">
@@ -22,7 +24,7 @@ public class ComputerStoreApplication {
 // в MainController, если залогинен и заходишь на страницу логина перенаправлять на др. страницу (с сообщением "Вы уже залогинены", предложить выйти???)
 // change description in initDB.txt  in project root
 // add dateOfRegistration field of type LocalDate
-// Serializable над Entity классами
+// Serializable над Entity классами (o7planning.org)
 // UserService(interface) extends UserDetailsService -> UserServiceImpl implements UserService
 // у админа сделать ROLE_ADMIN и ROLE_USER???
 // check all SonarLint warnings
@@ -39,3 +41,4 @@ public class ComputerStoreApplication {
 // При добавлении товара в корзину выводить где-нибудь уведомление о добавлении
 // выровнять footer по левому краю
 // добавить значок валюты возле стоимости
+// implement SEARCH field

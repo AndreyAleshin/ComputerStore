@@ -22,6 +22,7 @@
     <h2><strong>There are no products on the list yet.</strong></h2>
 </div>
 
+<!--Таблица не помещается на мониторе 1280х1024 (скорее всего из-за ссылки)-->
 <table class="table table-bordered table-hover" th:if="${!productList.isEmpty()}">
     <thead>
     <tr class="table-info">
@@ -38,7 +39,7 @@
         <td th:text="${product.getId()}"></td>
         <td th:text="${product.getName()}"></td>
         <td th:text="${product.getDescription()}"></td>
-        <td th:text="${product.getImageUrl()}"></td>
+        <td><img style="height: 150px; width: auto" th:src="${product.getImageUrl()}" alt="Product image"></td>
         <td th:text="${product.getPrice()}"></td>
         <td>
             <!--Кнопка EDIT обрезана-->

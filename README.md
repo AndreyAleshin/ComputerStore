@@ -2,14 +2,15 @@
 
 ##Introduction
 This is a computer store e-commerce application (not yet finished) built with the following technologies:
-1. Spring Boot 
-2. Spring Security 
-3. Spring Data
-4. H2 Database
-5. Thymeleaf
-6. Lombok
+1. Java 14
+2. Spring Boot 
+3. Spring Security 
+4. Spring Data
+5. H2 Database
+6. Thymeleaf
 7. Bootstrap
-8. Maven
+8. Lombok
+9. Maven
 
 To run it from IntelliJ IDEA start the app and type https://localhost:8080/ in your browser address bar.
 Also check the initDB.txt file for more instructions.
