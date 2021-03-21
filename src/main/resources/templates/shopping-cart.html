@@ -10,7 +10,7 @@
 <div th:replace="fragments/navbar :: navbar"></div>
 
 <div class="text-center my-5" th:if="${products.isEmpty()}">
-    <h2 th:text="#{shoppingCart.isEmpty}"><strong></strong></h2>
+    <h2><strong th:text="#{shoppingCart.isEmpty}"></strong></h2>
     <a class="btn btn-primary btn-lg my-3" th:href="@{/product/all}">Browse products</a>
 </div>
 
@@ -37,7 +37,9 @@
         <tbody>
         <tr th:each="product : ${products}">
             <td th:text="${product.getKey().get().getName()}"></td>
-            <td><img style="height: 150px; width: auto" th:src="${product.getKey().get().getImageUrl()}" alt="Product image"></td>
+            <td><img style="height: 150px; width: auto" th:src="${product.getKey().get().getImageUrl()}"
+                     alt="Product image">
+            </td>
             <td th:text="${product.getValue()}"></td>
             <td th:text="${product.getKey().get().getPrice()}"></td>
             <td>
@@ -55,7 +57,7 @@
         </tbody>
     </table>
 
-    <a th:href="@{/shopping-cart/clear/}">
+    <a th:href="@{/shopping-cart/clear}">
         <button type="button" class="btn btn-info" th:text="#{shoppingCart.clear}"></button>
     </a>
 </div>

@@ -42,4 +42,5 @@ public class ComputerStoreApplication {
 // выровнять footer по левому краю
 // добавить значок валюты возле стоимости
 // implement SEARCH field
-// MAIN PAGElo
+// MAIN PAGE
+// добавить кнопки "назад со стрелкой" в product-edit и product-add
