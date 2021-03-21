@@ -30,7 +30,7 @@ public class AdminController {
         model.addAttribute("username", "Welcome, " + user.get().getUsername() + "!");
         model.addAttribute(
                 "adminMessage",
-                "On this page you can manage users and products"
+                "As admin you can manage users and products"
         );
         return "/admin/admin-page";
     }

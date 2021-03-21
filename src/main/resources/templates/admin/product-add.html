@@ -13,6 +13,11 @@
 <div class="container my-5">
     <form class="form" th:object="${productFormAdd}" th:method="post" autocomplete="off">
         <fieldset>
+            <a class="btn btn-lg btn-success mb-5" role="button"
+               th:href="@{/admin/product-list}"
+               th:utext="#{product.return.glyphicon}">
+            </a>
+
             <h1 th:text="#{product.admin.add}"></h1>
 
             <div class="form-group">
