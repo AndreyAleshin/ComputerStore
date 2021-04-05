@@ -48,6 +48,4 @@ public class User {
     @Column(name = "status")
     private Status status;
 
-    // todo add dateOfRegistration field of type LocalDate
-
 }

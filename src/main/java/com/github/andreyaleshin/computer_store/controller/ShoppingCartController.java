@@ -64,9 +64,9 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/shopping-cart/checkout")
-    public String cartCheckout() {
+    public String cartCheckout(Model model) {
         shoppingCartService.checkout();
-        return "redirect:/shopping-cart";
+        return "/checkout";
     }
 
 }

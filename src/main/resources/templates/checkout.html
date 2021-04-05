@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <div th:replace="fragments/header :: header"></div>
+    <title>Checkout</title>
+</head>
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container mt-5">
+    <h1>
+        <strong>Congratulations! You have successfully purchased a computer(s). We will deliver it to you
+            shortly.</strong>
+    </h1>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+<div th:insert="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>
