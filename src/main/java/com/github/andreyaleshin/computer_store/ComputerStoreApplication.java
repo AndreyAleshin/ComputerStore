@@ -34,9 +34,6 @@ public class ComputerStoreApplication {
 на product-create и product-edit выдаёт ошибку (только если есть символы в поле - выдаёт ошибку "must be a valid URL")
  */
 // убрать поле Status из User класса???
-// implement logout page???
 // Добавить ShoppingCart entity, связать таблицу shopping_carts и users (@OneToOne)
-// При добавлении товара в корзину выводить где-нибудь уведомление о добавлении
-// добавить значок валюты возле стоимости
 // implement SEARCH field
 // implement a simple PAYMENT (checkout) page
