@@ -24,6 +24,11 @@ public class HomeController {
         return "/about";
     }
 
+    @GetMapping("/wake-up")
+    public String wakeUp() {
+        return "/samurai";
+    }
+
     @GetMapping("/error/403")
     public String accessDenied() {
         return "/error/403";
