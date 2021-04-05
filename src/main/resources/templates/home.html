@@ -9,14 +9,99 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<div class="container my-5">
-    <div class="starter-template">
-        <h1 th:text="${homeMessage}"></h1>
-        <h2>1. <a th:href="@{/admin/admin-page}">Admin page (ROLE_ADMIN)</a></h2>
-        <h2>2. <a th:href="@{/user/info}">User page (ROLE_USER)</a></h2>
-        <h2>3. <a th:href="@{/register}">Registration page (without login)</a></h2>
-        <h2>4. <a th:href="@{/login}">Login page (without login)</a></h2>
-        <h2>5. <a th:href="@{/about}">Normal page (without login)</a></h2>
+<header class="bg-primary py-5 mb-5" style="max-width: 100%">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12">
+                <h1 class="display-4 text-white mt-5 mb-2">Welcome to ComputerStore!</h1>
+                <p class="lead text-white mb-5">
+                    Here you can find a computer for your taste and budget.
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="container mb-5">
+            <h2><strong>What we offer</strong></h2>
+            <hr>
+
+            <p>
+                Looking for a new computer for your business or a gaming beast that will satisfy your passion?
+                This is the place where you can choose your dream computer from a wide variety of famous brands such as
+                <b><i>Java Computers</i></b>, <b><i>SpringGaming</i></b>, <b><i>ThymeleafPC</i></b> and a special guest
+                of our store - <b><i>CyberGAMES</i></b> with their new gaming monster <i>SAMURAI v2077</i>.
+            </p>
+
+            <a class="btn btn-danger btn-lg" th:href="@{/product/all}">Browse computers &raquo;</a>
+        </div>
+    </div>
+
+    <div class="row row-cols-3 justify-content-center">
+        <div class="card-deck p-3">
+            <div class="card border-primary" style="width: 18rem">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>Java Computers</strong></h4>
+                    <p class="card-text">
+                        "Built once, runs everything" - the moto of a Java Computers company. These are the guys who
+                        made one of the most popular programming language in the world. Check what they are capable
+                        of in PC building field.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary" th:href="@{/product/all}">Show</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-deck p-3">
+            <div class="card border-primary" style="width: 18rem">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>SpringGaming</strong></h4>
+                    <p class="card-text">
+                        From the creators who made the world's most popular Java framework. If you look for speed,
+                        simplicity and productivity then SpringGaming PC's will suit you best.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary" th:href="@{/product/all}">Show</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-deck p-3">
+            <div class="card border-primary" style="width: 18rem">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>ThymeleafPC</strong></h4>
+                    <p class="card-text">
+                        The developers of a modern server-side Java template engine are here to surprise you with
+                        their line of fast and robust PC's.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary" th:href="@{/product/all}">Show</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-lg-1 justify-content-center">
+        <div class="card-deck p-3">
+            <div class="card border-warning" style="width: 18rem">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>CyberGAMES</strong></h4>
+                    <p class="card-text">
+                        You've been waiting for this moment for too long! Now we are happy to introduce you a
+                        CyberGAMES with their brand new SAMURAI v2077 PC's. It is time to "Wake up samurai!"
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-warning" th:href="@{/product/all}">WAKE UP</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

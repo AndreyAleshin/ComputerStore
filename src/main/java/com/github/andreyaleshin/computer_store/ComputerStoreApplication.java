@@ -40,3 +40,4 @@ public class ComputerStoreApplication {
 // добавить значок валюты возле стоимости
 // implement SEARCH field
 // MAIN PAGE
+// implement a simple PAYMENT (checkout) page
