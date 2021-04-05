@@ -39,5 +39,4 @@ public class ComputerStoreApplication {
 // При добавлении товара в корзину выводить где-нибудь уведомление о добавлении
 // добавить значок валюты возле стоимости
 // implement SEARCH field
-// MAIN PAGE
 // implement a simple PAYMENT (checkout) page
