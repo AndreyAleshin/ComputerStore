@@ -1,13 +1,12 @@
 # ComputerStore 💻🖥🎮
 
-##Introduction
-
+## Introduction
 This is a computer store e-commerce application built with the following technologies:
 1. Java 14
 2. Spring Boot 
 3. Spring Security 
 4. Spring Data
-5. H2 Database (optional PostgreSQL)
+5. H2 Database (PostgreSQL)
 6. Thymeleaf
 7. Bootstrap
 8. Lombok
