@@ -1,5 +1,11 @@
 # ComputerStore 💻🖥🎮
 
+Here is a quick demo of a project (as user and admin respectively)
+
+![Project demo as user](app-demo/user.gif)
+
+![Project demo as admin](app-demo/admin.gif)
+
 ## Introduction
 This is a computer store e-commerce application built with the following technologies:
 1. Java 14
