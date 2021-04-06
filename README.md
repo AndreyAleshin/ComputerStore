@@ -1,6 +1,6 @@
 # ComputerStore 💻🖥🎮
 
-Here is a quick demo of a project (as user and admin respectively)
+Here is a quick demo of a project (as a user and an admin respectively)
 
 ![Project demo as user](src/main/resources/app-demo/user.gif)
 

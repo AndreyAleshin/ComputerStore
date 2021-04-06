@@ -13,7 +13,6 @@ public class ComputerStoreApplication {
 }
 
 // todo issues below
-// попробовать сдлать gif-ку вебсайта в проекте (README.md) на Github
 // write DOCS (not much)
 // TESTS
 // in pom.xml <version></version> разобраться

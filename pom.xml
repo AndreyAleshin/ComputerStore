@@ -17,7 +17,7 @@
     <description>My computer store project (Spring Boot + Spring Security)</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>14</java.version>
     </properties>
 
     <dependencies>
