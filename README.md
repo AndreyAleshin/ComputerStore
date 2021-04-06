@@ -1,7 +1,7 @@
 # ComputerStore 💻🖥🎮
 
 ##Introduction
-This is a computer store e-commerce application (not yet finished) built with the following technologies:
+This is a computer store e-commerce application built with the following technologies:
 1. Java 14
 2. Spring Boot 
 3. Spring Security 
@@ -13,14 +13,16 @@ This is a computer store e-commerce application (not yet finished) built with th
 9. Maven
 
 To run it from IntelliJ IDEA start the app and type https://localhost:8080/ in your browser address bar.
-Also check the initDB.txt file for more instructions.
+Also check the instructions.txt file for more info.
 
 ## What's implemented?
 + Home page
 + Login and registration pages
-+ Validation on a registration form
++ Validation on a registration form and on a product add/edit forms
 + Admin and user pages
 + Admin can manage users and products by editing and deleting them
 + Role-based system
 + Autologin feature after registration
 + Product page with items that you can place into your shopping cart
++ Product page with detailed information
++ Shopping cart page 
