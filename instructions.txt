@@ -1,7 +1,9 @@
-You should create a new connection with H2 database in IntelliJ IDEA and insert this data to the Query
-Console (the application should have started already). After that you will have 2 users in your DB (Admin and User)
-each with its own rights. Password for 'admin' and 'user' is 123. Now you can login with those credentials and test
-the functionality of the website.
+You should create a new connection with H2 database in IntelliJ IDEA and insert this data to the Query Console
+(the application should have started already). I am using H2 in Automatic Mixed Mode
+(https://www.h2database.com/html/features.html#auto_mixed_mode), therefore you can change the path where your DB will
+be stored in application.yaml. After that you will have 2 users in your DB (Admin and User) each with its own rights.
+Password for 'admin' and 'user' is 123. Now you can login with those credentials and test the functionality of
+the website (localhost:8080).
 
 -- ADMIN --
 INSERT INTO users (id, username, email, password, first_name, last_name, role, status)

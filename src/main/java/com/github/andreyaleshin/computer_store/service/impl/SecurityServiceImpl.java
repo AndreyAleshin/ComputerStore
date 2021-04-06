@@ -2,8 +2,6 @@ package com.github.andreyaleshin.computer_store.service.impl;
 
 import com.github.andreyaleshin.computer_store.service.SecurityService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-// provides current logged-in user and auto-login user after registration
+// provides current logged-in user and auto-login this user after registration
 @Slf4j
 @Service
 public class SecurityServiceImpl implements SecurityService {
@@ -36,7 +34,7 @@ public class SecurityServiceImpl implements SecurityService {
             return ((UserDetails) userDetails).getUsername();
         }
 
-        return null; // todo change null to something else
+        return null;
     }
 
     @Override

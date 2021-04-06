@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.validation.Valid;
-
 @Controller
 @RequestMapping("/register")
 public class RegistrationController {
@@ -40,7 +38,6 @@ public class RegistrationController {
         return "/register";
     }
 
-    // todo change user argument to UserDTO
     @PostMapping
     public String registerUser(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);

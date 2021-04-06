@@ -41,7 +41,6 @@
         <td><img style="height: 150px; width: auto" th:src="${product.getImageUrl()}" alt="Product image"></td>
         <td th:text="${product.getPrice()}"></td>
         <td>
-            <!--Кнопка EDIT обрезана-->
             <div class="btn-group">
                 <a class="btn btn-warning mr-2" role="button"
                    th:href="@{/admin/product-list/product-edit/{id}(id=${product.getId()})}"

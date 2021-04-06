@@ -23,7 +23,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableGlobalMethodSecurity(prePostEnabled = true) // защита отдельных методов (@Secured будет работать на методах)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // todo what it does? нет смысла (пока), т.к. интерфейс реализует только 1 класс
     @Qualifier("userDetailsServiceImpl")
     private final UserDetailsService userDetailsService;
 
@@ -108,18 +107,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager customAuthenticationManager() throws Exception {
         return authenticationManager();
     }
-
-    //    @Bean
-//    protected DaoAuthenticationProvider daoAuthenticationProvider() {
-//        var provider = new DaoAuthenticationProvider();
-//        provider.setPasswordEncoder(passwordEncoder());
-//        provider.setUserDetailsService(userDetailsService);
-//        return provider;
-//    }
-//
-//    @Override
-//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider(daoAuthenticationProvider());
-//    }
 
 }

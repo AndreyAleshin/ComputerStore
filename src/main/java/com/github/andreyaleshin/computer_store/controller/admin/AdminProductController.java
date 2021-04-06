@@ -56,7 +56,6 @@ public class AdminProductController {
         return "redirect:/admin/product-list";
     }
 
-    // id сделать long (примитив)???
     @GetMapping("/admin/product-list/product-edit/{id}")
     public String editProduct(@PathVariable("id") Long productId, Model model) {
         Optional<Product> product = productService.findProductById(productId);
@@ -72,8 +71,7 @@ public class AdminProductController {
     @PostMapping("/admin/product-list/product-edit/{id}")
     public String editProduct(@PathVariable("id") Long productId,
                               @ModelAttribute("productFormEdit") @Valid Product productForm,
-                              BindingResult bindingResult,
-                              Model model) {
+                              BindingResult bindingResult) {
         productValidator.validate(productForm, bindingResult);
 
         if (bindingResult.hasErrors()) {

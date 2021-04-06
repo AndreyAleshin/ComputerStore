@@ -19,7 +19,7 @@ import java.util.Optional;
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
-    private Map<Optional<Product>, Integer> shoppingCart = new LinkedHashMap<>();
+    private final Map<Optional<Product>, Integer> shoppingCart = new LinkedHashMap<>();
 
     @Override
     public void addProduct(Optional<Product> product) {
@@ -46,9 +46,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         shoppingCart.clear();
     }
 
+    // no implementation yet
     @Override
     public void checkout() {
-        shoppingCart.clear(); // todo implement this
+        shoppingCart.clear();
     }
 
     @Override

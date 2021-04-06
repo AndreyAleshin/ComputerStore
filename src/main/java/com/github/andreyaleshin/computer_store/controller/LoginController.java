@@ -15,9 +15,9 @@ public class LoginController {
         model.addAttribute("title", "Login page");
 
         if (principal != null) {
-            // todo если уже залогинен перенапрлять на какую-нибудь страницу (скрипт: всплывающее окно сверху с сообщением)
             return "redirect:/home";
         }
+
         if (error != null) {
             model.addAttribute("loginErrorMessage", "Invalid username and/or password");
         }
