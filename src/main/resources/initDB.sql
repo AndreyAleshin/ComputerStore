@@ -5,7 +5,7 @@ CREATE TABLE users
     id         INT PRIMARY KEY,
     username   VARCHAR(20) UNIQUE NOT NULL,
     email      VARCHAR(20) UNIQUE NOT NULL,
-    password   VARCHAR(32)        NOT NULL,
+    password   VARCHAR(255)        NOT NULL,
     first_name VARCHAR(20)        NOT NULL,
     last_name  VARCHAR(20)        NOT NULL,
     role       VARCHAR(20)        NOT NULL,
@@ -20,3 +20,72 @@ CREATE TABLE products
     image_url   VARCHAR(255) NOT NULL,
     price       NUMERIC     NOT NULL
 );
+
+
+-- ADMIN --
+INSERT INTO users (id, username, email, password, first_name, last_name, role, status)
+VALUES (1, 'admin', 'admin@gmail.com', '$2y$12$MU.0LpYEQrdrA0m3V2P90O6c3gpyZBAeadZxiUgMsOwVfiWw/8ndC', 'Admin',
+        'Adminin', 'ADMIN', 'ACTIVE');
+
+-- USER --
+INSERT INTO users (id, username, email, password, first_name, last_name, role, status)
+VALUES (2, 'user', 'user@gmail.com', '$2y$12$Lra/NhPO772U1yozfbZ/XuC79Euj27T5p9u8TKm.PzRhfnpJXAZ8C', 'User',
+        'Userov', 'USER', 'ACTIVE');
+
+
+-- PRODUCTS --
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (1,
+        'Java Computers V14',
+        'Intel Core i3-10100F (3.6 - 4.3 ГГц, 4 cores) / RAM 8 ГБ / HDD 1 ТБ / MSI GeForce GTX 1050 Ti, 4 ГБ / Without Optical Drive and OS / LAN',
+        'https://i8.rozetka.ua/goods/21650125/everest_home_4070_9414_images_21650125278.jpg',
+        15899);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (2,
+        'SpringGaming X9000',
+        'Intel Core i5-9400F (2.9 - 4.1 ГГц, 6 cores) / RAM 16 ГБ / HDD 1 ТБ + SSD 480 ГБ / ASUS GeForce GTX 1660 Super, 6 ГБ / Without Optical Drive and OS / LAN',
+        'https://i8.rozetka.ua/goods/20928613/artline_x51v12_images_20928613861.jpg',
+        32500);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (3,
+        'ThymeleafPC T-1000',
+        'AMD Ryzen 7 5800X (3.8 - 4.7 ГГц, 8 cores) / RAM 32 ГБ / SSD 1 ТБ / Gigabyte GeForce RTX 3060 Ti, 8 ГБ / Without Optical Drive and OS / LAN',
+        'https://i8.rozetka.ua/goods/20960612/copy_artline_x83v08_5fc755e3195cb_images_20960612006.jpg',
+        69999);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (4,
+        'SpringGaming SBoot 2.4.4',
+        'Intel Core i9-10850KF (3.6 - 5.2 ГГц, 10 cores) / RAM 32 ГБ / SSD 1.5 ТБ (1 ТБ + 500 ГБ) / ASUS GeForce RTX 3070, 8 ГБ / Without Optical Drive and OS / LAN / Wi-Fi / Bluetooth',
+        'https://i8.rozetka.ua/goods/20490922/copy_everest_9080_0235_5f982d62ce74c_images_20490922651.jpg',
+        90000);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (5,
+        'CyberGAMES SAMURAI v2077',
+        'AMD Ryzen 9 5900X (3.7 - 4.8 ГГц, 12 cores) / RAM 32 ГБ / SSD 1.5 ТБ (1 ТБ + 500 ГБ) / EVGA GeForce RTX 3080, 10 ГБ / Without Optical Drive / LAN / Windows 10 Pro',
+        'https://i8.rozetka.ua/goods/20585938/copy_artline_samuraiv02_5fa13c5a6016d_images_20585938516.jpg',
+        142000);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (6,
+        'ThymeleafPC T-800',
+        'Intel Core i7-7700 (3.6 - 4.2 ГГц, 4 cores) / RAM 4 ГБ / HDD 1 ТБ / Intel HD Graphics 630 / DVD-RW / LAN / Windows 10 Pro / Keyboard + mouse',
+        'https://i8.rozetka.ua/goods/18605717/copy_hp_8pg25ea_5ede3b69be2b3_images_18605717353.jpg',
+        11999);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (7,
+        'Java Computers JG1995OAK',
+        'Intel Pentium Gold G6400 (4.0 ГГц, 2 cores) / RAM 4 ГБ / SSD 120 ГБ / Intel UHD Graphics 610 / Without Optical Drive / LAN / Windows 10 Pro',
+        'https://i8.rozetka.ua/goods/21463986/copy_artline_b25v16win_600a9d9113095_images_21463986518.jpg',
+        7700);
+
+INSERT INTO products (id, name, description, image_url, price)
+VALUES (8,
+        'Java Computers V8',
+        'AMD Ryzen 5 3500 (3.6 - 4.1 ГГц, 6 cores) / RAM 16 ГБ / SSD 480 ГБ / AMD Radeon RX580, 8 ГБ / Without Optical Drive and OS / LAN',
+        'https://i8.rozetka.ua/goods/14611572/artline_x46v30_images_14611572422.jpg',
+        25900);

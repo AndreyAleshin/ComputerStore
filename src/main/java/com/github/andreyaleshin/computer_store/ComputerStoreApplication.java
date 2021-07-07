@@ -30,3 +30,5 @@ public class ComputerStoreApplication {
 // id сделать long (примитивом) AdminProductController и др.
 // Кнопка EDIT обрезана в product-list
 // Не отображается имя пользователя на 404.html
+
+// add License (Apache 2.0, MIT???)
